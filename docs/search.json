@@ -1,0 +1,213 @@
+[
+  {
+    "objectID": "programming-basics/index.html",
+    "href": "programming-basics/index.html",
+    "title": "Programming basics",
+    "section": "",
+    "text": "R is easiest to use when you know how the R language works. This tutorial will teach you the implicit background knowledge that informs every piece of R code. You’ll learn about:\n\nfunctions and their arguments\nobjects\nR’s basic data types\nR’s basic data structures including vectors and lists\nR’s package system",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics"
+    ]
+  },
+  {
+    "objectID": "programming-basics/index.html#section",
+    "href": "programming-basics/index.html#section",
+    "title": "Programming basics",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics"
+    ]
+  },
+  {
+    "objectID": "programming-basics/06-lists.html",
+    "href": "programming-basics/06-lists.html",
+    "title": "Lists",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "programming-basics/06-lists.html#section-1",
+    "href": "programming-basics/06-lists.html#section-1",
+    "title": "Lists",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "programming-basics/04-vectors.html",
+    "href": "programming-basics/04-vectors.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "programming-basics/04-vectors.html#section-4",
+    "href": "programming-basics/04-vectors.html#section-4",
+    "title": "Vectors",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "programming-basics/02-arguments.html",
+    "href": "programming-basics/02-arguments.html",
+    "title": "Arguments",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Arguments"
+    ]
+  },
+  {
+    "objectID": "programming-basics/02-arguments.html#section-1",
+    "href": "programming-basics/02-arguments.html#section-1",
+    "title": "Arguments",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Arguments"
+    ]
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "License",
+    "section": "",
+    "text": "License\nThis is a human-readable summary of (and not a substitute for) the license. Please see https://creativecommons.org/licenses/by-sa/4.0/ for the full legal text.\nThis work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nYou are free to:\n\nShare—copy and redistribute the material in any medium or format, even commercially.\nAdapt—remix, transform, and build upon the material for any purpose, even commercially.\n\nThe licensor cannot revoke these freedoms as long as you follow the license terms.\nUnder the following terms:\n\nAttribution—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nThe primers are derived from the book R for Data Science. For the purposes of this license, appropriate credit requires including the phrase, “R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.”\nShareAlike-—-If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions—You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNotices:\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Primers for LING 343",
+    "section": "",
+    "text": "This is a rebooted version of the old RStudio/Posit Primers, now with Quarto and webR. It is based on the original port adapted by Andrew Heiss 🙏, but is modified and updated to use the newer quarto live quarto extension. The organization has been rearranged, styling changed, and currently only a subset of the primers are included in this version."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "R Primers for LING 343",
+    "section": "License",
+    "text": "License\n\nThe original primers were developed by the RStudio/Posit Education Team and made open source on GitHub. Following the original license, and the license of Andrew Heiss’s port, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nThe primers are derived from the book R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.\nSee here for the full license."
+  },
+  {
+    "objectID": "programming-basics/01-functions.html",
+    "href": "programming-basics/01-functions.html",
+    "title": "Functions",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Functions"
+    ]
+  },
+  {
+    "objectID": "programming-basics/01-functions.html#section-2",
+    "href": "programming-basics/01-functions.html#section-2",
+    "title": "Functions",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Functions"
+    ]
+  },
+  {
+    "objectID": "programming-basics/03-objects.html",
+    "href": "programming-basics/03-objects.html",
+    "title": "Objects",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Objects"
+    ]
+  },
+  {
+    "objectID": "programming-basics/03-objects.html#section-3",
+    "href": "programming-basics/03-objects.html#section-3",
+    "title": "Objects",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Objects"
+    ]
+  },
+  {
+    "objectID": "programming-basics/05-types.html",
+    "href": "programming-basics/05-types.html",
+    "title": "Types",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Types"
+    ]
+  },
+  {
+    "objectID": "programming-basics/05-types.html#section",
+    "href": "programming-basics/05-types.html#section",
+    "title": "Types",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Types"
+    ]
+  },
+  {
+    "objectID": "programming-basics/07-packages.html",
+    "href": "programming-basics/07-packages.html",
+    "title": "Packages",
+    "section": "",
+    "text": "Watch this video:",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Packages"
+    ]
+  },
+  {
+    "objectID": "programming-basics/07-packages.html#section-2",
+    "href": "programming-basics/07-packages.html#section-2",
+    "title": "Packages",
+    "section": "",
+    "text": "Continue\n\n\nStart over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Packages"
+    ]
+  }
+]

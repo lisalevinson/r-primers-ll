@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: docs
+  preview:
+    port: 5555
+
+execute:
+  freeze: auto  # Re-render only when source changes
+
+website:
+  title: "R Primers for LING 343"
+  favicon: favicon.ico
+  bread-crumbs: false
+  
+  repo-url: "https://github.com/lisalevinson/r-primers-ll"
+  repo-actions: [edit, issue]
+
+  navbar:
+    pinned: true
+    left:
+      - text: "Programming Basics"
+        href: programming-basics/index.qmd
+
+  sidebar:
+    - title: "Programming Basics"
+      style: "docked"
+      collapse-level: 2
+      contents:
+        - auto: "programming-basics"
+
+  #     - section: "Transform data"
+  #       contents:
+  #       - auto: "transform-data/01-tibbles"
+  #       - auto: "transform-data/02-isolating"
+  #       - auto: "transform-data/03-deriving"
+  # 
+  #     - section: "Visualize data"
+  #       contents:
+  #       - auto: "visualize-data/01-eda"
+  #       - auto: "visualize-data/02-bar-charts"
+  #       - auto: "visualize-data/03-histograms"
+  #       - auto: "visualize-data/04-boxplots"
+  #       - auto: "visualize-data/05-scatterplots"
+  #       - auto: "visualize-data/06-line-graphs"
+  #       - auto: "visualize-data/07-overplotting"
+  #       - auto: "visualize-data/08-customize"
+  # 
+  #     - section: "Tidy data"
+  #       contents:
+  #       - auto: "tidy-data/01-reshape-data"
+
+format:
+  live-html: 
+    theme: 
+      - cosmo
+      - html/custom.scss
+    toc: true
+    toc-depth: 3
+    knitr:
+      opts_chunk:
+        dev: "ragg_png"
+        dpi: 300

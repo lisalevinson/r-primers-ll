@@ -1,0 +1,29 @@
+---
+title: "ggplot2 gym"
+format:
+  live-html: 
+    toc: false
+    section-divs: true
+    include-after-body: 
+      - text: |
+          <script src="/js/bootstrapify.js"></script>
+#          <script src="/js/progressive-reveal.js"></script>
+
+engine: knitr
+webr:
+  cell-options:
+    editor-font-scale: 0.85
+    fig-width: 6
+    fig-height: 3.7
+    out-width: "70%"
+draft: true
+---
+
+
+{{< include /_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+source(here::here("R", "helpers.R"))
+```
+
+blah

@@ -1,0 +1,221 @@
+---
+title: "R Gym - warm ups"
+format:
+  live-html: 
+    toc: false
+    section-divs: true
+    include-after-body: 
+      - text: |
+          <script src="/js/bootstrapify.js"></script>
+#          <script src="/js/progressive-reveal.js"></script>
+
+engine: knitr
+webr:
+  cell-options:
+    editor-font-scale: 0.85
+    fig-width: 6
+    fig-height: 3.7
+    out-width: "70%"
+draft: true
+---
+
+{{< include /_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+source(here::here("R", "helpers.R"))
+```
+
+
+### `rnorm()` 1
+
+Use `rnrom()` to generate 100 random normal values with a mean of 100 and a standard deviation of 15.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+rnorm(100, mean = 100, sd = 15)
+```
+
+:::
+
+
+Use the chunk below to extract the fourth element of `vec`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+vec <- c(1, 2, 4, 8, 16)
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+vec <- c(1, 2, 4, 8, 16)
+vec[4]
+```
+
+:::
+
+Place the vector `c(1,2,5)` between the brackets below. What does R return?
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+vec <- c(1, 2, 4, 8, 16)
+vec[]
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+vec <- c(1, 2, 4, 8, 16)
+vec[c(1,2,5)]
+```
+
+:::
+
+
+If the elements of your vector have names, you can extract them by name. To do so place a name or vector of names in the brackets behind a vector. Surround each name with quotation marks, e.g. `vec2[c("alpha", "beta")]`.
+
+Extract the element named gamma from the vector below.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+vec2 <- c(alpha = 1, beta = 2, gamma = 3)
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+vec2 <- c(alpha = 1, beta = 2, gamma = 3)
+vec2["gamma"]
+```
+
+:::
+
+### Make a list
+
+Make a list that contains the elements `1001`, `TRUE`, and `"stories"`. Give each element a name.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+list(number = 1001, logical = TRUE, string = "stories")
+```
+
+:::
+
+
+### Extract an element
+
+Extract the number 1001 from the list below.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+things <- list(number = 1001, logical = TRUE, string = "stories")
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+things <- list(number = 1001, logical = TRUE, string = "stories")
+things$number
+```
+
+:::
+
+### Data Frames
+
+You can make a data frame with the `data.frame()` function, which works similar to `c()`, and `list()`. Assemble the vectors below into a data frame with the column names `numbers`, `logicals`, `strings`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+nums <- c(1, 2, 3, 4)
+logs <- c(TRUE, TRUE, FALSE, TRUE)
+strs <- c("apple", "banana", "carrot", "duck")
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+nums <- c(1, 2, 3, 4)
+logs <- c(TRUE, TRUE, FALSE, TRUE)
+strs <- c("apple", "banana", "carrot", "duck")
+data.frame(numbers = nums, logicals = logs, strings = strs)
+```
+
+:::
+
+###
+
+Good job. When you make a data frame, you must follow one rule: each column vector should be the same length
+
+
+### Extract a column
+
+Given that a data frame is a type of list (with named elements), how could you extract the strings column of the `df` data frame below? Do it.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+nums <- c(1, 2, 3, 4)
+logs <- c(TRUE, TRUE, FALSE, TRUE)
+strs <- c("apple", "banana", "carrot", "duck")
+df <- data.frame(numbers = nums, logicals = logs, strings = strs)
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+df$strings
+```
+
+:::
+
+
+##
+
+```{r}
+#| echo: false
+#| results: asis
+create_buttons("02-arguments.html")
+```

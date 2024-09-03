@@ -33,10 +33,10 @@ You can use the data in `babynames` to make graphs like this, which reveal the h
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, out.width="90%"}
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   ggplot() +
     geom_line(aes(x = year, y = prop)) +
-    labs(title = "Popularity of the name Andrew")
+    labs(title = "Popularity of the name Lisa")
 ```
 
 But before you do, you will need to trim down `babynames`. At the moment, there are more rows in `babynames` than you need to build your plot. 
@@ -55,10 +55,10 @@ I then narrowed the data to just the rows that contain my name, before plotting 
 
 ```{r out.width="60%"}
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   ggplot() +
     geom_point(aes(x = year, y = prop)) +
-    labs(title = "Popularity of the name Andrew")
+    labs(title = "Popularity of the name Lisa")
 ```
 
 If I had skipped this step, my line graph would've connected all of the points in the large dataset, creating an uninformative graph.
@@ -87,5 +87,5 @@ Each function takes a data frame or tibble as its first argument and returns a n
 ```{r}
 #| echo: false
 #| results: asis
-create_buttons("02-select.html")
+create_buttons("12-select.html")
 ```

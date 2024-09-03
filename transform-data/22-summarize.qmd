@@ -54,18 +54,18 @@ Importantly, the `summarize()` function is *destructive*. It collapses a dataset
 
 ### Example
 
-I used `summarize()` earlier to calculate the total number of boys named "Andrew", but let's expand that code to also calculate 
+I used `summarize()` earlier to calculate the total number of babies marked sex "F" named "Lisa", but let's expand that code to also calculate 
 
-* `max`: the maximum number of boys named "Andrew" in a single year
-* `mean`: the mean number of boys named "Andrew" per year
+* `max`: the maximum number of "F" babies named "Lisa" in a single year
+* `mean`: the mean number of "F" babies named "Lisa" per year
 
 ```{r}
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   summarize(total = sum(n), max = max(n), mean = mean(n))
 ```
 
-Don't let the code above fool you. The first argument of `summarize()` is always a data frame, but when you use `summarize()` in a pipe, the first argument is provided by the pipe operator, `|>`. Here the first argument will be the data frame that is returned by `babynames |> filter(name == "Andrew", sex == "M")`.
+Don't let the code above fool you. The first argument of `summarize()` is always a data frame, but when you use `summarize()` in a pipe, the first argument is provided by the pipe operator, `|>`. Here the first argument will be the data frame that is returned by `babynames |> filter(name == "Lisa", sex == "F")`.
 
 ### Exercise: `summarize()`
 
@@ -90,7 +90,7 @@ If you cannot think of an R function that would compute each statistic, click th
 
 ```r
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   summarize(total = sum(n), max = max(n), mean = mean(n))
 ```
 
@@ -170,7 +170,7 @@ How can we apply `summarize()` to find the most popular names in `babynames`? Yo
 
 ```{r eval=FALSE}
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   summarize(total = sum(n))
 ```
 
@@ -186,5 +186,5 @@ Eventually, the program could combine all of the results back into a single data
 ```{r}
 #| echo: false
 #| results: asis
-create_buttons("03-group_by.html")
+create_buttons("23-group_by.html")
 ```

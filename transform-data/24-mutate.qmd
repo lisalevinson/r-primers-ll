@@ -107,7 +107,7 @@ Watch this animation to help with the intuition. `mutate()` adds a new column to
 
 The syntax of mutate is similar to `summarize()`. `mutate()` takes first a data frame, and then one or more named arguments that are set equal to R expressions. `mutate()` turns each named argument into a column. The name of the argument becomes the column name and the result of the R expression becomes the column contents.
 
-Use `mutate()` in the chunk below to create a `births` column, the result of dividing `n` by `prop`. You can think of `births` as a sanity check; it uses each row to double check the number of boys or girls that were born each year. If all is well, the numbers will agree across rows (allowing for rounding errors).
+Use `mutate()` in the chunk below to create a `births` column, the result of dividing `n` by `prop`. You can think of `births` as a sanity check; it uses each row to double check the number of babies marked "M" vs. "F" that were born each year. If all is well, the numbers will agree across rows (allowing for rounding errors).
 
 ::: {.panel-tabset}
 ## {{< fa code >}}&ensp;Interactive editor
@@ -280,5 +280,5 @@ The six dplyr functions help you work with these realities by isolating and reve
 ```{r}
 #| echo: false
 #| results: asis
-create_buttons("05-challenges.html")
+create_buttons("25-challenges.html")
 ```

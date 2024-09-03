@@ -20,8 +20,8 @@
     ]
   },
   {
-    "objectID": "transform-data/34-mutate.html",
-    "href": "transform-data/34-mutate.html",
+    "objectID": "transform-data/24-mutate.html",
+    "href": "transform-data/24-mutate.html",
     "title": "mutate()",
     "section": "",
     "text": "Why might there be a difference between the proportion of children who receive a name over time, and the number of children who receive the name?\nAn obvious culprit could be the total number of children born per year. If more children are born each year, the number of children who receive a name could grow even if the proportion of children given that name declines.\nTest this theory in the chunk below. Use babynames and groupwise summaries to compute the total number of children born each year and then to plot that number vs. year in a line graph.\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nbabynames |&gt; \n  group_by(year) |&gt; \n  summarize(n = sum(n)) |&gt; \n  ggplot() +\n    geom_line(aes(x = year, y = n))",
@@ -31,8 +31,8 @@
     ]
   },
   {
-    "objectID": "transform-data/34-mutate.html#section-2",
-    "href": "transform-data/34-mutate.html#section-2",
+    "objectID": "transform-data/24-mutate.html#section-2",
+    "href": "transform-data/24-mutate.html#section-2",
     "title": "mutate()",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
@@ -42,8 +42,8 @@
     ]
   },
   {
-    "objectID": "transform-data/32-summarize.html",
-    "href": "transform-data/32-summarize.html",
+    "objectID": "transform-data/22-summarize.html",
+    "href": "transform-data/22-summarize.html",
     "title": "summarize()",
     "section": "",
     "text": "summarize() takes a data frame and uses it to calculate a new data frame of summary statistics.",
@@ -53,8 +53,8 @@
     ]
   },
   {
-    "objectID": "transform-data/32-summarize.html#section-1",
-    "href": "transform-data/32-summarize.html#section-1",
+    "objectID": "transform-data/22-summarize.html#section-1",
+    "href": "transform-data/22-summarize.html#section-1",
     "title": "summarize()",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
@@ -64,8 +64,8 @@
     ]
   },
   {
-    "objectID": "transform-data/30_index.html",
-    "href": "transform-data/30_index.html",
+    "objectID": "transform-data/20_index.html",
+    "href": "transform-data/20_index.html",
     "title": "Deriving information with {dplyr}",
     "section": "",
     "text": "In this case study, you will identify the most popular American names from 1880 to 2015. While doing this, you will master three more dplyr functions:\nThese are some of the most useful R functions for data science, and this tutorial provides everything you need to learn them.\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {tibble}, and {dplyr}, as well as the babynames package. All of these packages have been pre-installed and pre-loaded for your convenience.",
@@ -75,8 +75,8 @@
     ]
   },
   {
-    "objectID": "transform-data/30_index.html#section",
-    "href": "transform-data/30_index.html#section",
+    "objectID": "transform-data/20_index.html#section",
+    "href": "transform-data/20_index.html#section",
     "title": "Deriving information with {dplyr}",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
@@ -466,7 +466,7 @@
     "href": "transform-data/15-pipe.html",
     "title": "|>",
     "section": "",
-    "text": "Notice how each {dplyr} function takes a data frame as input and returns a data frame as output. This makes the functions easy to use in a step-by-step fashion. For example, you could:\n\nFilter babynames to just boys born in 2017\nSelect the name and n columns from the result\nArrange those columns so that the most popular names appear near the top.\n\n\nboys_2017 &lt;- filter(babynames, year == 2017, sex == \"M\")\nboys_2017 &lt;- select(boys_2017, name, n)\nboys_2017 &lt;- arrange(boys_2017, desc(n))\nboys_2017\n\n# A tibble: 14,160 × 2\n   name         n\n   &lt;chr&gt;    &lt;int&gt;\n 1 Liam     18728\n 2 Noah     18326\n 3 William  14904\n 4 James    14232\n 5 Logan    13974\n 6 Benjamin 13733\n 7 Mason    13502\n 8 Elijah   13268\n 9 Oliver   13141\n10 Jacob    13106\n# ℹ 14,150 more rows",
+    "text": "Notice how each {dplyr} function takes a data frame as input and returns a data frame as output. This makes the functions easy to use in a step-by-step fashion. For example, you could:\n\nFilter babynames to just “M” sex babies born in 2017\nSelect the name and n columns from the result\nArrange those columns so that the most popular names appear near the top.\n\n\nm_2017 &lt;- filter(babynames, year == 2017, sex == \"M\")\nm_2017 &lt;- select(m_2017, name, n)\nm_2017 &lt;- arrange(m_2017, desc(n))\nm_2017\n\n# A tibble: 14,160 × 2\n   name         n\n   &lt;chr&gt;    &lt;int&gt;\n 1 Liam     18728\n 2 Noah     18326\n 3 William  14904\n 4 James    14232\n 5 Logan    13974\n 6 Benjamin 13733\n 7 Mason    13502\n 8 Elijah   13268\n 9 Oliver   13141\n10 Jacob    13106\n# ℹ 14,150 more rows",
     "crumbs": [
       "Transform Data",
       "`|>`"
@@ -484,8 +484,8 @@
     ]
   },
   {
-    "objectID": "transform-data/31-most-popular-names.html",
-    "href": "transform-data/31-most-popular-names.html",
+    "objectID": "transform-data/21-most-popular-names.html",
+    "href": "transform-data/21-most-popular-names.html",
     "title": "The most popular names",
     "section": "",
     "text": "Let’s use babynames to answer a different question: what are the most popular names of all time?\nThis question seems simple enough, but to answer it we need to be more precise: how do you define “the most popular” names? Try to think of several definitions and then click Continue. After the Continue button, I will suggest two definitions of my own.",
@@ -495,8 +495,8 @@
     ]
   },
   {
-    "objectID": "transform-data/31-most-popular-names.html#section",
-    "href": "transform-data/31-most-popular-names.html#section",
+    "objectID": "transform-data/21-most-popular-names.html#section",
+    "href": "transform-data/21-most-popular-names.html#section",
     "title": "The most popular names",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
@@ -506,8 +506,8 @@
     ]
   },
   {
-    "objectID": "transform-data/33-group_by.html",
-    "href": "transform-data/33-group_by.html",
+    "objectID": "transform-data/23-group_by.html",
+    "href": "transform-data/23-group_by.html",
     "title": "group_by() and summarize()",
     "section": "",
     "text": "group_by() takes a data frame and then the names of one or more columns in the data frame. It returns a copy of the data frame that has been “grouped” into sets of rows that share identical combinations of values in the specified columns.",
@@ -517,8 +517,8 @@
     ]
   },
   {
-    "objectID": "transform-data/33-group_by.html#section-1",
-    "href": "transform-data/33-group_by.html#section-1",
+    "objectID": "transform-data/23-group_by.html#section-1",
+    "href": "transform-data/23-group_by.html#section-1",
     "title": "group_by() and summarize()",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
@@ -528,8 +528,8 @@
     ]
   },
   {
-    "objectID": "transform-data/35-challenges.html",
-    "href": "transform-data/35-challenges.html",
+    "objectID": "transform-data/25-challenges.html",
+    "href": "transform-data/25-challenges.html",
     "title": "Challenges",
     "section": "",
     "text": "Apply your knowledge of dplyr to do the following two challenges.",
@@ -539,8 +539,8 @@
     ]
   },
   {
-    "objectID": "transform-data/35-challenges.html#section-1",
-    "href": "transform-data/35-challenges.html#section-1",
+    "objectID": "transform-data/25-challenges.html#section-1",
+    "href": "transform-data/25-challenges.html#section-1",
     "title": "Challenges",
     "section": "",
     "text": "Continue\n\n\nStart over",

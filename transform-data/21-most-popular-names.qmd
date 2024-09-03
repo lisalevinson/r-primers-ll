@@ -69,7 +69,7 @@ Every data frame that you meet implies more information than it displays. For ex
 
 ```{r}
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   summarize(total = sum(n))
 ```
 
@@ -90,5 +90,5 @@ Let's master each function and use them to analyze popularity as we go.
 ```{r}
 #| echo: false
 #| results: asis
-create_buttons("02-summarize.html")
+create_buttons("22-summarize.html")
 ```

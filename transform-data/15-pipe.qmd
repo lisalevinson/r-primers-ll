@@ -43,22 +43,22 @@ source(here::here("R", "helpers.R"))
 
 Notice how each {dplyr} function takes a data frame as input and returns a data frame as output. This makes the functions easy to use in a step-by-step fashion. For example, you could:
 
-1. Filter `babynames` to just boys born in 2017
+1. Filter `babynames` to just "M" sex babies born in 2017
 2. Select the `name` and `n` columns from the result
 3. Arrange those columns so that the most popular names appear near the top.
 
 ```{r}
-boys_2017 <- filter(babynames, year == 2017, sex == "M")
-boys_2017 <- select(boys_2017, name, n)
-boys_2017 <- arrange(boys_2017, desc(n))
-boys_2017
+m_2017 <- filter(babynames, year == 2017, sex == "M")
+m_2017 <- select(m_2017, name, n)
+m_2017 <- arrange(m_2017, desc(n))
+m_2017
 ```
 
 ### Redundancy
 
-The result shows us the most popular boys names from 2017, which is the most recent year in the data set. But take a look at the code. Do you notice how we re-create `boys_2017` at each step so we will have something to pass to the next step? This is an inefficient way to write R code.
+The result shows us the most popular "M" names from 2017, which is the most recent year in the data set. But take a look at the code. Do you notice how we re-create `m_2017` at each step so we will have something to pass to the next step? This is an inefficient way to write R code.
 
-You could avoid creating `boys_2017` by nesting your functions inside of each other, but this creates code that is hard to read:
+You could avoid creating `m_2017` by nesting your functions inside of each other, but this creates code that is hard to read:
 
 ```{r eval=FALSE}
 arrange(select(filter(babynames, year == 2017, sex == "M"), name, n), desc(n))
@@ -134,11 +134,11 @@ Note that the first argument of `ggplot()` takes a data frame, which means you c
 
 ```r
 babynames |> 
-  filter(name == "Andrew", sex == "M") |> 
+  filter(name == "Lisa", sex == "F") |> 
   select(year, prop) |> 
   ggplot() +
     geom_line(aes(x = year, y = prop)) +
-    labs(title = "Popularity of the name Andrew")
+    labs(title = "Popularity of the name Lisa")
 ```
 
 :::

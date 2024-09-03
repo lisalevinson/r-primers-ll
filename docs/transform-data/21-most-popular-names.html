@@ -221,37 +221,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../transform-data/30_index.html" class="sidebar-item-text sidebar-link">
+  <a href="../transform-data/20_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Deriving information with {dplyr}</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../transform-data/31-most-popular-names.html" class="sidebar-item-text sidebar-link active">
+  <a href="../transform-data/21-most-popular-names.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">The most popular names</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../transform-data/32-summarize.html" class="sidebar-item-text sidebar-link">
+  <a href="../transform-data/22-summarize.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><code>summarize()</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../transform-data/33-group_by.html" class="sidebar-item-text sidebar-link">
+  <a href="../transform-data/23-group_by.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><code>group_by()</code> and <code>summarize()</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../transform-data/34-mutate.html" class="sidebar-item-text sidebar-link">
+  <a href="../transform-data/24-mutate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><code>mutate()</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../transform-data/35-challenges.html" class="sidebar-item-text sidebar-link">
+  <a href="../transform-data/25-challenges.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Challenges</span></a>
   </div>
 </li>
@@ -333,13 +333,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Every data frame that you meet implies more information than it displays. For example, <code>babynames</code> does not display the total number of children who had your name, but <code>babynames</code> certainly implies what that number is. To discover the number, you only need to do a calculation:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>babynames <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Andrew"</span>, sex <span class="sc">==</span> <span class="st">"M"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Lisa"</span>, sex <span class="sc">==</span> <span class="st">"F"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
-    total
-    &lt;int&gt;
-1 1283910</code></pre>
+   total
+   &lt;int&gt;
+1 964973</code></pre>
 </div>
 </div>
 </section>
@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <button id="continueButton" class="btn btn-primary float-start me-2">
 Continue
 </button>
-<a id="nextTopicButton" class="btn btn-danger disabled" href="02-summarize.html" role="button">Next topic</a> <button id="resetButton" class="btn btn-outline-warning btn-sm float-end">Start over</button>
+<a id="nextTopicButton" class="btn btn-danger disabled" href="22-summarize.html" role="button">Next topic</a> <button id="resetButton" class="btn btn-outline-warning btn-sm float-end">Start over</button>
 </section>
 </div>
 
@@ -817,7 +817,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/lisalevinson/r-primers-ll/edit/main/transform-data/31-most-popular-names.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lisalevinson/r-primers-ll/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../js/progressive-reveal.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/lisalevinson/r-primers-ll/edit/main/transform-data/21-most-popular-names.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lisalevinson/r-primers-ll/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../js/progressive-reveal.js"></script>
 <script src="../js/bootstrapify.js"></script>
 
 

@@ -62,7 +62,8 @@ Apply your knowledge of dplyr to do the following two challenges.
 
 ### Number Ones Challenge: boys
 
-How many distinct boys names achieved a rank of Number 1 in any year?
+Assuming "M" sex is equivalent to "boy" (and "F" for "girl"), how many distinct boys names achieved 
+a rank of Number 1 in any year?
 
 ::: {.panel-tabset}
 ## {{< fa code >}}&ensp;Interactive editor

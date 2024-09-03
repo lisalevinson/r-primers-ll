@@ -64,7 +64,7 @@ top_10 <- babynames::babynames |>
 
 ### `group_by()` in action
 
-For example, the result below is grouped into rows that have the same combination of `year` and `sex` values: boys in 1880 are treated as one group, girls in 1880 as another group and so on.
+For example, the result below is grouped into rows that have the same combination of `year` and `sex` values: babies marked in "M" in 1880 are treated as one group, babies marked "F" in 1880 as another group and so on.
 
 ```{r}
 babynames |>
@@ -175,7 +175,7 @@ That's it. Between `group_by()`, `summarize()`, and `ungroup()`, you have a tool
 
 You now know enough to calculate the most popular names by total children (it may take some strategizing, but you can do it!). 
 
-In the code chunk below, use `group_by()`, `summarize()`, and `arrange()` to display the ten most popular names. Compute popularity as the total number of children of a single gender given a name. In other words, the total number of boys named "Kelly" should be computed separately from the total number of girls named "Kelly".
+In the code chunk below, use `group_by()`, `summarize()`, and `arrange()` to display the ten most popular names. Compute popularity as the total number of children of a single sex given a name. In other words, the total number of babies marked "M" named "Kelly" should be computed separately from the total number of babies marked "F" named "Kelly".
 
 ::: {.panel-tabset}
 ## {{< fa code >}}&ensp;Interactive editor
@@ -261,5 +261,5 @@ Good job! This graph shows different trends than the one above, now let's consid
 ```{r}
 #| echo: false
 #| results: asis
-create_buttons("04-mutate.html")
+create_buttons("24-mutate.html")
 ```

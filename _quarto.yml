@@ -20,6 +20,8 @@ website:
     left:
       - text: "Programming Basics"
         href: programming-basics/index.qmd
+      - text: "Transform Data"
+        href: transform-data/index.qmd
 
   sidebar:
     - title: "Programming Basics"
@@ -27,6 +29,13 @@ website:
       collapse-level: 2
       contents:
         - auto: "programming-basics"
+    - title: "Transform Data"
+      style: "docked"
+      collapse-level: 2
+      contents:
+        - auto: "transform-data"
+      
+      
 
   #     - section: "Transform data"
   #       contents:

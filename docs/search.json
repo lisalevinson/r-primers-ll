@@ -1,5 +1,168 @@
 [
   {
+    "objectID": "transform-data/index.html",
+    "href": "transform-data/index.html",
+    "title": "Transform Data",
+    "section": "",
+    "text": "In this primer, you will explore the popularity of different names over time. To succeed, you will need to master some common tools for manipulating data with R:\nThese are some of the most useful R functions for data science, and the tutorials that follow will provide you everything you need to learn them.\nIn the tutorials, we’ll use a dataset named babynames, which comes in a package that is also named babynames. Within babynames, you will find information about almost every name given to children in the United States since 1880.\nThis tutorial introduces babynames as well as a new data structure that makes working with data in R easy: the tibble.\nIn addition to babynames, this tutorial uses the core tidyverse packages, including {ggplot2}, {tibble}, and {dplyr.} All of these packages have been pre-installed for your convenience. But they haven’t been pre-loaded—something you will soon learn more about!",
+    "crumbs": [
+      "Transform Data"
+    ]
+  },
+  {
+    "objectID": "transform-data/index.html#section",
+    "href": "transform-data/index.html#section",
+    "title": "Transform Data",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data"
+    ]
+  },
+  {
+    "objectID": "transform-data/34-mutate.html",
+    "href": "transform-data/34-mutate.html",
+    "title": "mutate()",
+    "section": "",
+    "text": "Why might there be a difference between the proportion of children who receive a name over time, and the number of children who receive the name?\nAn obvious culprit could be the total number of children born per year. If more children are born each year, the number of children who receive a name could grow even if the proportion of children given that name declines.\nTest this theory in the chunk below. Use babynames and groupwise summaries to compute the total number of children born each year and then to plot that number vs. year in a line graph.\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nbabynames |&gt; \n  group_by(year) |&gt; \n  summarize(n = sum(n)) |&gt; \n  ggplot() +\n    geom_line(aes(x = year, y = n))",
+    "crumbs": [
+      "Transform Data",
+      "`mutate()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/34-mutate.html#section-2",
+    "href": "transform-data/34-mutate.html#section-2",
+    "title": "mutate()",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "`mutate()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/32-summarize.html",
+    "href": "transform-data/32-summarize.html",
+    "title": "summarize()",
+    "section": "",
+    "text": "summarize() takes a data frame and uses it to calculate a new data frame of summary statistics.",
+    "crumbs": [
+      "Transform Data",
+      "`summarize()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/32-summarize.html#section-1",
+    "href": "transform-data/32-summarize.html#section-1",
+    "title": "summarize()",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "`summarize()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/30_index.html",
+    "href": "transform-data/30_index.html",
+    "title": "Deriving information with {dplyr}",
+    "section": "",
+    "text": "In this case study, you will identify the most popular American names from 1880 to 2015. While doing this, you will master three more dplyr functions:\nThese are some of the most useful R functions for data science, and this tutorial provides everything you need to learn them.\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {tibble}, and {dplyr}, as well as the babynames package. All of these packages have been pre-installed and pre-loaded for your convenience.",
+    "crumbs": [
+      "Transform Data",
+      "Deriving information with {dplyr}"
+    ]
+  },
+  {
+    "objectID": "transform-data/30_index.html#section",
+    "href": "transform-data/30_index.html#section",
+    "title": "Deriving information with {dplyr}",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "Deriving information with {dplyr}"
+    ]
+  },
+  {
+    "objectID": "transform-data/14-arrange.html",
+    "href": "transform-data/14-arrange.html",
+    "title": "arrange()",
+    "section": "",
+    "text": "arrange() returns all of the rows of a data frame reordered by the values of a column. As with select(), the first argument of arrange() should be a data frame and the remaining arguments should be the names of columns. If you give arrange() a single column name, it will return the rows of the data frame reordered so that the row with the lowest value in that column appears first, the row with the second lowest value appears second, and so on. If the column contains character strings, arrange() will place them in alphabetical order.",
+    "crumbs": [
+      "Transform Data",
+      "`arrange()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/14-arrange.html#section-2",
+    "href": "transform-data/14-arrange.html#section-2",
+    "title": "arrange()",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "`arrange()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/12-select.html",
+    "href": "transform-data/12-select.html",
+    "title": "select()",
+    "section": "",
+    "text": "select() extracts columns of a data frame and returns the columns as a new data frame. To use select(), pass it the name of a data frame to extract columns from, and then the names of the columns to extract. The column names do not need to appear in quotation marks or be prefixed with a $; select() knows to find them in the data frame that you supply.",
+    "crumbs": [
+      "Transform Data",
+      "`select()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/12-select.html#section",
+    "href": "transform-data/12-select.html#section",
+    "title": "select()",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "`select()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/10_isolate_index.html",
+    "href": "transform-data/10_isolate_index.html",
+    "title": "Isolating data with {dplyr}",
+    "section": "",
+    "text": "In this case study, you will explore the popularity of your own name over time. Along the way, you will master some of the most useful functions for isolating variables, cases, and values within a data frame:\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {tibble}, and {dplyr}, as well as the {babynames} package. All of these packages have been pre-installed and pre-loaded for your convenience.",
+    "crumbs": [
+      "Transform Data",
+      "Isolating data with {dplyr}"
+    ]
+  },
+  {
+    "objectID": "transform-data/10_isolate_index.html#section",
+    "href": "transform-data/10_isolate_index.html#section",
+    "title": "Isolating data with {dplyr}",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "Isolating data with {dplyr}"
+    ]
+  },
+  {
+    "objectID": "transform-data/02-tibbles.html#section-1",
+    "href": "transform-data/02-tibbles.html#section-1",
+    "title": "tibbles",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "tibbles"
+    ]
+  },
+  {
     "objectID": "programming-basics/index.html",
     "href": "programming-basics/index.html",
     "title": "Programming basics",
@@ -211,17 +374,179 @@
     ]
   },
   {
-    "objectID": "gym/index.html",
-    "href": "gym/index.html",
-    "title": "R Gym - warm ups",
+    "objectID": "transform-data/01-babynames.html",
+    "href": "transform-data/01-babynames.html",
+    "title": "babynames",
     "section": "",
-    "text": "Use rnrom() to generate 100 random normal values with a mean of 100 and a standard deviation of 15.\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nrnorm(100, mean = 100, sd = 15)\n\n\n\nUse the chunk below to extract the fourth element of vec.\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nvec &lt;- c(1, 2, 4, 8, 16)\nvec[4]\n\n\n\nPlace the vector c(1,2,5) between the brackets below. What does R return?\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nvec &lt;- c(1, 2, 4, 8, 16)\nvec[c(1,2,5)]\n\n\n\nIf the elements of your vector have names, you can extract them by name. To do so place a name or vector of names in the brackets behind a vector. Surround each name with quotation marks, e.g. vec2[c(\"alpha\", \"beta\")].\nExtract the element named gamma from the vector below.\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nvec2 &lt;- c(alpha = 1, beta = 2, gamma = 3)\nvec2[\"gamma\"]"
+    "text": "Before we begin, let’s learn a little about our data. The babynames dataset comes in the {babynames} package. The package is pre-installed for you, just as {ggplot2} was pre-installed in the last tutorial. But unlike in the last tutorial, I have not pre-loaded {babynames}, or any other package.\nWhat does this mean? In R, whenever you want to use a package that is not part of base R, you need to load the package with the command library(). Until you load a package, R will not be able to find the datasets and functions contained in the package. For example, if we asked R to display the babynames dataset, which comes in the {babynames} package, right now, we’d get the message below. R cannot find the dataset because we haven’t loaded the {babynames} package.\n\nbabynames\n\nError in eval(expr, envir, enclos): object 'babynames' not found\n\n\nTo load the {babynames} package, you would run the command library(babynames). After you load a package, R will be able to find its contents until you close R. The next time you open R, you will need to reload the package if you wish to use it again.\nThis might sound like an inconvenience, but choosing which packages to load keeps your R experience simple and orderly.\nIn the chunk below, load {babynames} (the package) and then open the help page for babynames (the dataset). Be sure to read the help page before going on.\n\n Interactive editor Solution\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(babynames)\n?babynames",
+    "crumbs": [
+      "Transform Data",
+      "babynames"
+    ]
   },
   {
-    "objectID": "gym/index.html#section-1",
-    "href": "gym/index.html#section-1",
-    "title": "R Gym - warm ups",
+    "objectID": "transform-data/01-babynames.html#section",
+    "href": "transform-data/01-babynames.html#section",
+    "title": "babynames",
     "section": "",
-    "text": "Continue\n\nNext topic Start over"
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "babynames"
+    ]
+  },
+  {
+    "objectID": "transform-data/03-tidyverse.html",
+    "href": "transform-data/03-tidyverse.html",
+    "title": "tidyverse",
+    "section": "",
+    "text": "The {tibble} package is one of several packages that are known collectively as “the tidyverse”. Tidyverse packages share a common philosophy and are designed to work well together. For example, in this tutorial you will use the {tibble} package, the {ggplot2} package, and the {dplyr} package, all of which belong to the tidyverse.",
+    "crumbs": [
+      "Transform Data",
+      "tidyverse"
+    ]
+  },
+  {
+    "objectID": "transform-data/03-tidyverse.html#section",
+    "href": "transform-data/03-tidyverse.html#section",
+    "title": "tidyverse",
+    "section": "",
+    "text": "Continue\n\n\nStart over",
+    "crumbs": [
+      "Transform Data",
+      "tidyverse"
+    ]
+  },
+  {
+    "objectID": "transform-data/11-your-name.html",
+    "href": "transform-data/11-your-name.html",
+    "title": "Your name",
+    "section": "",
+    "text": "You can use the data in babynames to make graphs like this, which reveal the history of a name, perhaps your name.\n\n\n\n\n\n\n\n\n\nBut before you do, you will need to trim down babynames. At the moment, there are more rows in babynames than you need to build your plot.",
+    "crumbs": [
+      "Transform Data",
+      "Your name"
+    ]
+  },
+  {
+    "objectID": "transform-data/11-your-name.html#section",
+    "href": "transform-data/11-your-name.html#section",
+    "title": "Your name",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "Your name"
+    ]
+  },
+  {
+    "objectID": "transform-data/13-filter.html",
+    "href": "transform-data/13-filter.html",
+    "title": "filter()",
+    "section": "",
+    "text": "filter() extracts rows from a data frame and returns them as a new data frame. As with select(), the first argument of filter() should be a data frame to extract rows from. The arguments that follow should be logical tests; filter() will return every row for which the tests return TRUE.",
+    "crumbs": [
+      "Transform Data",
+      "`filter()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/13-filter.html#section-5",
+    "href": "transform-data/13-filter.html#section-5",
+    "title": "filter()",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "`filter()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/15-pipe.html",
+    "href": "transform-data/15-pipe.html",
+    "title": "|>",
+    "section": "",
+    "text": "Notice how each {dplyr} function takes a data frame as input and returns a data frame as output. This makes the functions easy to use in a step-by-step fashion. For example, you could:\n\nFilter babynames to just boys born in 2017\nSelect the name and n columns from the result\nArrange those columns so that the most popular names appear near the top.\n\n\nboys_2017 &lt;- filter(babynames, year == 2017, sex == \"M\")\nboys_2017 &lt;- select(boys_2017, name, n)\nboys_2017 &lt;- arrange(boys_2017, desc(n))\nboys_2017\n\n# A tibble: 14,160 × 2\n   name         n\n   &lt;chr&gt;    &lt;int&gt;\n 1 Liam     18728\n 2 Noah     18326\n 3 William  14904\n 4 James    14232\n 5 Logan    13974\n 6 Benjamin 13733\n 7 Mason    13502\n 8 Elijah   13268\n 9 Oliver   13141\n10 Jacob    13106\n# ℹ 14,150 more rows",
+    "crumbs": [
+      "Transform Data",
+      "`|>`"
+    ]
+  },
+  {
+    "objectID": "transform-data/15-pipe.html#section-1",
+    "href": "transform-data/15-pipe.html#section-1",
+    "title": "|>",
+    "section": "",
+    "text": "Continue\n\n\nStart over",
+    "crumbs": [
+      "Transform Data",
+      "`|>`"
+    ]
+  },
+  {
+    "objectID": "transform-data/31-most-popular-names.html",
+    "href": "transform-data/31-most-popular-names.html",
+    "title": "The most popular names",
+    "section": "",
+    "text": "Let’s use babynames to answer a different question: what are the most popular names of all time?\nThis question seems simple enough, but to answer it we need to be more precise: how do you define “the most popular” names? Try to think of several definitions and then click Continue. After the Continue button, I will suggest two definitions of my own.",
+    "crumbs": [
+      "Transform Data",
+      "The most popular names"
+    ]
+  },
+  {
+    "objectID": "transform-data/31-most-popular-names.html#section",
+    "href": "transform-data/31-most-popular-names.html#section",
+    "title": "The most popular names",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "The most popular names"
+    ]
+  },
+  {
+    "objectID": "transform-data/33-group_by.html",
+    "href": "transform-data/33-group_by.html",
+    "title": "group_by() and summarize()",
+    "section": "",
+    "text": "group_by() takes a data frame and then the names of one or more columns in the data frame. It returns a copy of the data frame that has been “grouped” into sets of rows that share identical combinations of values in the specified columns.",
+    "crumbs": [
+      "Transform Data",
+      "`group_by()` and `summarize()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/33-group_by.html#section-1",
+    "href": "transform-data/33-group_by.html#section-1",
+    "title": "group_by() and summarize()",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Transform Data",
+      "`group_by()` and `summarize()`"
+    ]
+  },
+  {
+    "objectID": "transform-data/35-challenges.html",
+    "href": "transform-data/35-challenges.html",
+    "title": "Challenges",
+    "section": "",
+    "text": "Apply your knowledge of dplyr to do the following two challenges.",
+    "crumbs": [
+      "Transform Data",
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "transform-data/35-challenges.html#section-1",
+    "href": "transform-data/35-challenges.html#section-1",
+    "title": "Challenges",
+    "section": "",
+    "text": "Continue\n\n\nStart over",
+    "crumbs": [
+      "Transform Data",
+      "Challenges"
+    ]
   }
 ]

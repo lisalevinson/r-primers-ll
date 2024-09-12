@@ -10,8 +10,6 @@ format:
           <script src="/js/bootstrapify.js"></script>
 
 engine: knitr
-filters:
-  - webr
 webr:
   packages:
     - tidyr
@@ -24,7 +22,7 @@ webr:
     fig-height: 3.7
     out-width: "70%"
 ---
-
+{{< include /_extensions/r-wasm/live/_knitr.qmd >}}
 ```{r include=FALSE}
 knitr::opts_chunk$set(
   fig.width = 6,

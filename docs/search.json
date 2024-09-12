@@ -163,6 +163,40 @@
     ]
   },
   {
+    "objectID": "tidy-data/index.html",
+    "href": "tidy-data/index.html",
+    "title": "Reshape data",
+    "section": "",
+    "text": "The tools that you learned in the previous Primers work best when your data is organized in a specific way. This format is known as tidy data and it appears throughout the tidyverse. You will spend a lot of time as a data scientist wrangling your data into a usable format, so it is important to learn how to do this fast.\nThis tutorial will teach you how to recognize tidy data, as well as how to reshape untidy data into a tidy format. In it, you will learn the core data wrangling functions for the tidyverse:\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {dplyr}, and {tidyr}, as well as the {babynames} package. All of these packages have been pre-installed and pre-loaded for your convenience.",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data"
+    ]
+  },
+  {
+    "objectID": "tidy-data/index.html#section",
+    "href": "tidy-data/index.html#section",
+    "title": "Reshape data",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data"
+    ]
+  },
+  {
+    "objectID": "tidy-data/02-wide-to-long.html#section-4",
+    "href": "tidy-data/02-wide-to-long.html#section-4",
+    "title": "Wide to long",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data",
+      "Wide to long"
+    ]
+  },
+  {
     "objectID": "programming-basics/index.html",
     "href": "programming-basics/index.html",
     "title": "Programming basics",
@@ -371,6 +405,42 @@
       "Programming Basics",
       "Programming basics",
       "Packages"
+    ]
+  },
+  {
+    "objectID": "tidy-data/01-tidy-data.html",
+    "href": "tidy-data/01-tidy-data.html",
+    "title": "Tidy data",
+    "section": "",
+    "text": "In the exploratory data analysis primer, we proposed three definitions that are useful for data science:\n\nA variable is a quantity, quality, or property that you can measure.\nA value is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.\nAn observation is a set of measurements that are made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a case or data point.\n\nThese definitions are tied to the concept of tidy data. To see how, let’s apply the definitions to some real data.",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "tidy-data/01-tidy-data.html#section",
+    "href": "tidy-data/01-tidy-data.html#section",
+    "title": "Tidy data",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "tidy-data/03-long-to-wide.html#section-5",
+    "href": "tidy-data/03-long-to-wide.html#section-5",
+    "title": "Long to wide",
+    "section": "",
+    "text": "Continue\n\n\nStart over",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data",
+      "Long to wide"
     ]
   },
   {

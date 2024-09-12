@@ -22,6 +22,8 @@ website:
         href: programming-basics/index.qmd
       - text: "Transform Data"
         href: transform-data/index.qmd
+      - text: "Tidy Data"
+        href: tidy-data/index.qmd
 
   sidebar:
     - title: "Programming Basics"
@@ -34,7 +36,11 @@ website:
       collapse-level: 2
       contents:
         - auto: "transform-data"
-      
+    - title: "Tidy Data"
+      style: "docked"
+      collapse-level: 2
+      contents:
+        - auto: "tidy-data"      
       
 
   #     - section: "Transform data"

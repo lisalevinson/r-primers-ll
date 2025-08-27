@@ -414,7 +414,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUs
 </section>
 <section id="specifying-columns" class="level3">
 <h3 class="anchored" data-anchor-id="specifying-columns">Specifying columns</h3>
-<p>So far, we have listed which columns to pivot by naming them one at a time and combining them using the <code>c()</code> function, but this isn’t necessary. <code>pivot_longer()</code> also recognizes column names as well as all of the <code>select()</code> helpers that you learned about in <a href="..\transform-data/02-isolating/02-select.qmd">Isolating Data with {dplyr}</a>. So, for example, these expressions would all do the same thing:</p>
+<p>So far, we have listed which columns to pivot by naming them one at a time and combining them using the <code>c()</code> function, but this isn’t necessary. <code>pivot_longer()</code> also recognizes column names as well as all of the <code>select()</code> helpers that you learned about in <a href="../transform-data/12-select.html">Isolating Data with {dplyr}</a>. So, for example, these expressions would all do the same thing:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>table4a <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>

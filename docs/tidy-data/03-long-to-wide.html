@@ -308,14 +308,20 @@ eyJhdHRyIjp7ImNvbnRleHQiOiJzZXR1cCIsImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoi
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <form name="form_41964" onsubmit="return validate_form_41964()" method="post">
+<label>
 <input type="radio" name="answer_41964" id="answer_41964_1" value="city">
-<label>city</label>
+city
+</label>
 <br>
+<label>
 <input type="radio" name="answer_41964" id="answer_41964_2" value="size">
-<label>size</label>
+size
+</label>
 <br>
+<label>
 <input type="radio" name="answer_41964" id="answer_41964_3" value="amount">
-<label>amount</label>
+amount
+</label>
 <br>
 <input type="submit" value="Submit answer">
 <div id="result_41964"></div>
@@ -356,22 +362,28 @@ eyJhdHRyIjp7ImNvbnRleHQiOiJzZXR1cCIsImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoi
 <p><strong>Which column in <code>pollution</code> contains the values associated with the variable names from the previous exercise?</strong></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<form name="form_75960" onsubmit="return validate_form_75960()" method="post">
-<input type="radio" name="answer_75960" id="answer_75960_1" value="city">
-<label>city</label>
+<form name="form_59944" onsubmit="return validate_form_59944()" method="post">
+<label>
+<input type="radio" name="answer_59944" id="answer_59944_1" value="city">
+city
+</label>
 <br>
-<input type="radio" name="answer_75960" id="answer_75960_2" value="size">
-<label>size</label>
+<label>
+<input type="radio" name="answer_59944" id="answer_59944_2" value="size">
+size
+</label>
 <br>
-<input type="radio" name="answer_75960" id="answer_75960_3" value="amount">
-<label>amount</label>
+<label>
+<input type="radio" name="answer_59944" id="answer_59944_3" value="amount">
+amount
+</label>
 <br>
 <input type="submit" value="Submit answer">
-<div id="result_75960"></div>
+<div id="result_59944"></div>
 </form>
-<script>function validate_form_75960() {var x, text; var x = document.forms['form_75960']['answer_75960'].value;if (x == 'amount'){text = 'Correct! What do these numbers represent? You can only tell when you match them with the variable names large (for large particulate) and small (for small particulate).';} else {text = 'I have a different answer';} document.getElementById('result_75960').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_59944() {var x, text; var x = document.forms['form_59944']['answer_59944'].value;if (x == 'amount'){text = 'Correct! What do these numbers represent? You can only tell when you match them with the variable names large (for large particulate) and small (for small particulate).';} else {text = 'I have a different answer';} document.getElementById('result_59944').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_41964').innerText == 'Correct! Two properties are being measured in this data: 1) the amount of small particulate in the air, and 2) the amount of large particulate.'; res2 = document.getElementById('result_75960').innerText == 'Correct! What do these numbers represent? You can only tell when you match them with the variable names large (for large particulate) and small (for small particulate).';text = res1 + res2;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_41964').innerText == 'Correct! Two properties are being measured in this data: 1) the amount of small particulate in the air, and 2) the amount of large particulate.'; res2 = document.getElementById('result_59944').innerText == 'Correct! What do these numbers represent? You can only tell when you match them with the variable names large (for large particulate) and small (for small particulate).';text = res1 + res2;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -569,8 +581,12 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUs
 <h3 class="anchored" data-anchor-id="review-make-the-plot">Review: Make the plot</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year'. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year and sex.
+ℹ Output is grouped by year.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, sex))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">

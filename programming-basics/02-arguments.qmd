@@ -27,7 +27,7 @@ library(checkdown)
 source(here::here("R", "helpers.R"))
 ```
 
-### Arguments {.no-hide}
+### Arguments 
 
 Here we see that the `log` function recognizes two arguments, one named `x` and one named `base`. 
 

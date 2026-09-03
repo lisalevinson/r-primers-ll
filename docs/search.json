@@ -163,281 +163,59 @@
     ]
   },
   {
-    "objectID": "transcripts.html",
-    "href": "transcripts.html",
-    "title": "programming basics",
+    "objectID": "tidy-data/index.html",
+    "href": "tidy-data/index.html",
+    "title": "Reshape data",
     "section": "",
-    "text": "https://vimeo.com/220490105\nMost functions produce a result like we see here, but some functions are designed to trigger side effects in the background.\n00:07 As a new R user you should know how to do three things with a function. First, you should know that if you type the name of a function by itself, R will return the code that is stored in the function.\n00:13 This is the code that R runs when you call the function. The code may not mean anything to you now, but it can be useful down the road.\n00:25 Second, you should know that to run a function you must do more than type its name. You must place a pair of parentheses behind the function name.\n00:33 If the function requires any input to do its job you place the input between the parentheses, like the number three here.\n00:42 Finally, you should know that if you put a question mark in front of the function name and click run, R will open a help page for the function.\n00:49 This is the best way to learn about how the function works. Notice that you do not include parentheses when you open a help page.\n00:57\n\n\n\nhttps://vimeo.com/220490157\nHere we see that the log function recognizes two arguments, one named x and one named base. You can use these names to look up what the arguments do, for example in log’s help page.\n00:20 You can also use names when you call log to ensure that the right input is matched to the right argument.\n00:33 If you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n00:40 In practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\n00:54 For example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n01:09 R will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\n01:17 In contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.\n01:28\n\n\n\nhttps://player.vimeo.com/video/223812632\nTranscript\nSo far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\n00:00 In R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n00:08 The operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\n00:18 R will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n00:26 Whenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n00:38 This makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n00:45 If you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names.\n\n\n\nhttps://vimeo.com/220490316\nR stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\n00:00 When you run this rnorm call, R sees the result as a vector of length ten. You can create your own vectors with the c function which combines the values into a single vector.\n00:10 If you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n00:22 For example, mean computes the mean of a vector of values, and sum computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input.\n00:33 R will apply the function separately to each element in the vector and return the result as a new vector.\n00:48 If you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector,\n00:54 and so on until R reaches the end of the vector.\n01:02\n\n\n\nhttps://vimeo.com/220490241 R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof. Numeric vectors contain numbers and possibly decimal points and negative signs.\nThey have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\n00:39 Integer vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\n00:50 R also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\n01:02 It is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\n01:12 If you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\n01:25 Later you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\n01:33 But for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector.\n\n\n\nhttps://vimeo.com/220490360\nIn addition to vectors, R comes with a second very useful data structure: the list. A list is like a vector of vectors. Each element in the list can be a separate vector or even another list.\n00:00 For example, this list contains three elements. The first element is a numerical vector length five. The second is a character vector of length one,\n00:12 and the third element is a logical vector of length one. This list illustrates a useful feature of lists. You can store different types of data in the same list because each element of the list is its own vector with its own type.\n00:22 Recall that basic vectors can only store a single type of data. You can make lists like this with the list function.\n00:35 List works like the c function. Give list the elements of the list to make, separated by commas. If you like you can assign names to the elements as you go (which I recommend).\n00:43 If you assign names to each element of the list you can access the contents of the elements by typing the name of the list followed by a dollar sign, followed by the name of the element.\n00:56 Lists are essential to data science because R uses a specific type of list to store tabular data, and that’s the data frame.\n01:07 R displays data frames (like the iris data frame here) as a table. But R saves data frames as a list. Each column of the data frame is a vector that is saved as an element of the list.\n01:15 For example we can see how R saves iris. Iris is actually a list of five vectors. The names of the columns in iris are the names of the elements in the list.\n01:28\n\n\n\nhttps://vimeo.com/220490447\nR contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R.\n00:00 Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as packages.\nWhen you want to use these functions you must first load the package they come in with the library function.\n00:21 For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.\n00:27 Once I load the ggplot2 package, R can find the ggplot function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n00:42 You can use R to download the packages by running install.packages at the command line. Give install.packages the names of the packages that you wish to download as a character vector and R will take care of the rest.\n00:56 R downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\n01:10 In most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.\n01:20"
-  },
-  {
-    "objectID": "transcripts.html#functions",
-    "href": "transcripts.html#functions",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://vimeo.com/220490105\nMost functions produce a result like we see here, but some functions are designed to trigger side effects in the background.\n00:07 As a new R user you should know how to do three things with a function. First, you should know that if you type the name of a function by itself, R will return the code that is stored in the function.\n00:13 This is the code that R runs when you call the function. The code may not mean anything to you now, but it can be useful down the road.\n00:25 Second, you should know that to run a function you must do more than type its name. You must place a pair of parentheses behind the function name.\n00:33 If the function requires any input to do its job you place the input between the parentheses, like the number three here.\n00:42 Finally, you should know that if you put a question mark in front of the function name and click run, R will open a help page for the function.\n00:49 This is the best way to learn about how the function works. Notice that you do not include parentheses when you open a help page.\n00:57"
-  },
-  {
-    "objectID": "transcripts.html#arguments",
-    "href": "transcripts.html#arguments",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://vimeo.com/220490157\nHere we see that the log function recognizes two arguments, one named x and one named base. You can use these names to look up what the arguments do, for example in log’s help page.\n00:20 You can also use names when you call log to ensure that the right input is matched to the right argument.\n00:33 If you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n00:40 In practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\n00:54 For example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n01:09 R will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\n01:17 In contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.\n01:28"
-  },
-  {
-    "objectID": "transcripts.html#objects-03-geometric-objects",
-    "href": "transcripts.html#objects-03-geometric-objects",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://player.vimeo.com/video/223812632\nTranscript\nSo far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\n00:00 In R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n00:08 The operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\n00:18 R will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n00:26 Whenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n00:38 This makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n00:45 If you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names."
-  },
-  {
-    "objectID": "transcripts.html#vectors",
-    "href": "transcripts.html#vectors",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://vimeo.com/220490316\nR stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\n00:00 When you run this rnorm call, R sees the result as a vector of length ten. You can create your own vectors with the c function which combines the values into a single vector.\n00:10 If you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n00:22 For example, mean computes the mean of a vector of values, and sum computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input.\n00:33 R will apply the function separately to each element in the vector and return the result as a new vector.\n00:48 If you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector,\n00:54 and so on until R reaches the end of the vector.\n01:02"
-  },
-  {
-    "objectID": "transcripts.html#types",
-    "href": "transcripts.html#types",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://vimeo.com/220490241 R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof. Numeric vectors contain numbers and possibly decimal points and negative signs.\nThey have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\n00:39 Integer vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\n00:50 R also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\n01:02 It is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\n01:12 If you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\n01:25 Later you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\n01:33 But for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector."
-  },
-  {
-    "objectID": "transcripts.html#lists",
-    "href": "transcripts.html#lists",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://vimeo.com/220490360\nIn addition to vectors, R comes with a second very useful data structure: the list. A list is like a vector of vectors. Each element in the list can be a separate vector or even another list.\n00:00 For example, this list contains three elements. The first element is a numerical vector length five. The second is a character vector of length one,\n00:12 and the third element is a logical vector of length one. This list illustrates a useful feature of lists. You can store different types of data in the same list because each element of the list is its own vector with its own type.\n00:22 Recall that basic vectors can only store a single type of data. You can make lists like this with the list function.\n00:35 List works like the c function. Give list the elements of the list to make, separated by commas. If you like you can assign names to the elements as you go (which I recommend).\n00:43 If you assign names to each element of the list you can access the contents of the elements by typing the name of the list followed by a dollar sign, followed by the name of the element.\n00:56 Lists are essential to data science because R uses a specific type of list to store tabular data, and that’s the data frame.\n01:07 R displays data frames (like the iris data frame here) as a table. But R saves data frames as a list. Each column of the data frame is a vector that is saved as an element of the list.\n01:15 For example we can see how R saves iris. Iris is actually a list of five vectors. The names of the columns in iris are the names of the elements in the list.\n01:28"
-  },
-  {
-    "objectID": "transcripts.html#packages",
-    "href": "transcripts.html#packages",
-    "title": "programming basics",
-    "section": "",
-    "text": "https://vimeo.com/220490447\nR contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R.\n00:00 Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as packages.\nWhen you want to use these functions you must first load the package they come in with the library function.\n00:21 For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.\n00:27 Once I load the ggplot2 package, R can find the ggplot function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n00:42 You can use R to download the packages by running install.packages at the command line. Give install.packages the names of the packages that you wish to download as a character vector and R will take care of the rest.\n00:56 R downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\n01:10 In most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.\n01:20"
-  },
-  {
-    "objectID": "transcripts.html#histograms",
-    "href": "transcripts.html#histograms",
-    "title": "programming basics",
-    "section": "01-histograms",
-    "text": "01-histograms\nhttps://vimeo.com/221607341\nA histogram divides a continuous axis into equal length intervals known as bins. It then counts the number of observations that appear in each bin and displays the results as a bar that spans the width of the bin.\n00:20 So for example here in our first bin there are three observations, so the histogram would plot a bar the width of the bin that has a height of three.\n00:33 The next bin has eight observations, and then the next bin has ten observations, and so on. The height of each bar is mapped to the number of observations in the bin, which makes our histogram.\n00:40 The width of the bins is known as the binwidth which is an important number in histograms. If we change the binwidth of our histogram and then repeat our process the histogram will look different.\n00:52 Now we have more bins and they each have different heights. However this is the same distribution and the same data.\n01:05 As a result it’s important to experiment with different binwidths when you create a histogram. Different bin widths can reveal different patterns within the same data.\n01:14"
-  },
-  {
-    "objectID": "transcripts.html#wide-to-long",
-    "href": "transcripts.html#wide-to-long",
-    "title": "programming basics",
-    "section": "02 wide-to-long",
-    "text": "02 wide-to-long\nhttps://vimeo.com/229581247\nno transcript - gather"
-  },
-  {
-    "objectID": "transcripts.html#long-to-wide",
-    "href": "transcripts.html#long-to-wide",
-    "title": "programming basics",
-    "section": "03-long-to-wide",
-    "text": "03-long-to-wide\nhttps://vimeo.com/229581273\nno transcript - spread??"
-  },
-  {
-    "objectID": "tidy-data/03-long-to-wide.html#section-5",
-    "href": "tidy-data/03-long-to-wide.html#section-5",
-    "title": "Long to wide",
-    "section": "",
-    "text": "Continue\n\n\nStart over",
+    "text": "The tools that you learned in the previous Primers work best when your data is organized in a specific way. This format is known as tidy data and it appears throughout the tidyverse. You will spend a lot of time as a data scientist wrangling your data into a usable format, so it is important to learn how to do this fast.\nThis tutorial will teach you how to recognize tidy data, as well as how to reshape untidy data into a tidy format. In it, you will learn the core data wrangling functions for the tidyverse:\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {dplyr}, and {tidyr}, as well as the {babynames} package. All of these packages have been pre-installed and pre-loaded for your convenience.",
     "crumbs": [
       "Tidy Data",
-      "Reshape data",
-      "Long to wide"
+      "Reshape data"
     ]
   },
   {
-    "objectID": "tidy-data/01-tidy-data.html",
-    "href": "tidy-data/01-tidy-data.html",
-    "title": "Tidy data",
+    "objectID": "tidy-data/index.html#section",
+    "href": "tidy-data/index.html#section",
+    "title": "Reshape data",
     "section": "",
-    "text": "Here are three definitions that are useful for data science:\n\nA variable is a quantity, quality, or property that you can measure.\nA value is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.\nAn observation is a set of measurements that are made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a case or data point.\n\nThese definitions are tied to the concept of tidy data. To see how, let’s apply the definitions to some real data.",
+    "text": "Continue\n\nNext topic Start over",
     "crumbs": [
       "Tidy Data",
-      "Reshape data",
-      "Tidy data"
+      "Reshape data"
     ]
   },
   {
-    "objectID": "tidy-data/01-tidy-data.html#section",
-    "href": "tidy-data/01-tidy-data.html#section",
-    "title": "Tidy data",
+    "objectID": "tidy-data/02-wide-to-long.html#section-4",
+    "href": "tidy-data/02-wide-to-long.html#section-4",
+    "title": "Wide to long",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
     "crumbs": [
       "Tidy Data",
       "Reshape data",
-      "Tidy data"
+      "Wide to long"
     ]
   },
   {
-    "objectID": "programming-basics/07-packages.html",
-    "href": "programming-basics/07-packages.html",
-    "title": "Packages",
+    "objectID": "programming-basics/index.html",
+    "href": "programming-basics/index.html",
+    "title": "Programming basics",
     "section": "",
-    "text": "R contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R. Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as “packages”.\nWhen you want to use these functions you must first load the package they come in with the library function. For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.\n\nggplot(penguins, aes(x = bill_len, y = flipper_len)) + \n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nOnce I load the ggplot2 package, R can find the ggplot() function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n\nlibrary(ggplot2)\nggplot(penguins, aes(x = bill_len, y = flipper_len)) + \n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nYou can use R to download the packages by running install.packages() at the command line. Give install.packages() the names of the packages that you wish to download as a character vector and R will take care of the rest.\nR downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\nIn most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.",
+    "text": "R is easiest to use when you know how the R language works. This tutorial will teach you the implicit background knowledge that informs every piece of R code. You’ll learn about:\n\nfunctions and their arguments\nobjects\nR’s basic data types\nR’s basic data structures including vectors and lists\nR’s package system",
     "crumbs": [
       "Programming Basics",
-      "Programming basics",
-      "Packages"
+      "Programming basics"
     ]
   },
   {
-    "objectID": "programming-basics/07-packages.html#section-2",
-    "href": "programming-basics/07-packages.html#section-2",
-    "title": "Packages",
-    "section": "",
-    "text": "Continue\n\n\nStart over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Packages"
-    ]
-  },
-  {
-    "objectID": "programming-basics/05-types.html",
-    "href": "programming-basics/05-types.html",
-    "title": "Types",
-    "section": "",
-    "text": "R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\n\nmynums &lt;- c(1,2,3,4)\nsum(mynums)\n\n[1] 10\n\n\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\n\nmywords &lt;- c(\"cat\", \"zebra\", \"hippopotamus\")\nnchar(mywords)\n\n[1]  3  5 12\n\n\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof().\n\ntypeof(mywords)\n\n[1] \"character\"\n\ntypeof(mynums)\n\n[1] \"double\"\n\n\nNumeric vectors contain numbers and possibly decimal points and negative signs. They have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\nInteger vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\nR also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\nIt is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\nIf you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\nLater you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\nBut for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector.",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Types"
-    ]
-  },
-  {
-    "objectID": "programming-basics/05-types.html#section",
-    "href": "programming-basics/05-types.html#section",
-    "title": "Types",
+    "objectID": "programming-basics/index.html#section",
+    "href": "programming-basics/index.html#section",
+    "title": "Programming basics",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
     "crumbs": [
       "Programming Basics",
-      "Programming basics",
-      "Types"
-    ]
-  },
-  {
-    "objectID": "programming-basics/03-objects.html",
-    "href": "programming-basics/03-objects.html",
-    "title": "Objects",
-    "section": "",
-    "text": "So far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\nIn R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n\n\n\n\n\n\n\n\nThe operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\nR will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n\n\n\n\n\n\n\n\nWhenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n\n\n\n\n\n\n\n\nThis makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n\n\n\n\n\n\n\n\nIf you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names.",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Objects"
-    ]
-  },
-  {
-    "objectID": "programming-basics/03-objects.html#section-3",
-    "href": "programming-basics/03-objects.html#section-3",
-    "title": "Objects",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Objects"
-    ]
-  },
-  {
-    "objectID": "programming-basics/01-functions.html",
-    "href": "programming-basics/01-functions.html",
-    "title": "Functions",
-    "section": "",
-    "text": "First, read the Posit Recipe on running functions.",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Functions"
-    ]
-  },
-  {
-    "objectID": "programming-basics/01-functions.html#section-2",
-    "href": "programming-basics/01-functions.html#section-2",
-    "title": "Functions",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Functions"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R Primers for LING 343",
-    "section": "",
-    "text": "This is a rebooted version of the old RStudio/Posit Primers, now with Quarto and webR. It is based on the original port adapted by Andrew Heiss 🙏, but is modified and updated to use the newer quarto live quarto extension. The organization has been rearranged, styling changed, and currently only a subset of the primers are included in this version."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "R Primers for LING 343",
-    "section": "License",
-    "text": "License\n\nThe original primers were developed by the RStudio/Posit Education Team and made open source on GitHub. Following the original license, and the license of Andrew Heiss’s port, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nThe primers are derived from the book R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.\nSee here for the full license."
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "License",
-    "section": "",
-    "text": "License\nThis is a human-readable summary of (and not a substitute for) the license. Please see https://creativecommons.org/licenses/by-sa/4.0/ for the full legal text.\nThis work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nYou are free to:\n\nShare—copy and redistribute the material in any medium or format, even commercially.\nAdapt—remix, transform, and build upon the material for any purpose, even commercially.\n\nThe licensor cannot revoke these freedoms as long as you follow the license terms.\nUnder the following terms:\n\nAttribution—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nThe primers are derived from the book R for Data Science. For the purposes of this license, appropriate credit requires including the phrase, “R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.”\nShareAlike-—-If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions—You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNotices:\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material."
-  },
-  {
-    "objectID": "programming-basics/02-arguments.html",
-    "href": "programming-basics/02-arguments.html",
-    "title": "Arguments",
-    "section": "",
-    "text": "Here we see that the log function recognizes two arguments, one named x and one named base.\n\n\n\n\n\n\n\n\nYou can use these names to look up what the arguments do, for example in log’s help page.\n\n\n\n\n\n\n\n\nYou can also use names when you call log to ensure that the right input is matched to the right argument.\n\n\n\n\n\n\n\n\nIf you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n\n\n\n\n\n\n\n\nIn practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\nFor example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n\n\n\n\n\n\n\n\nR will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\nIn contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Arguments"
-    ]
-  },
-  {
-    "objectID": "programming-basics/02-arguments.html#section-1",
-    "href": "programming-basics/02-arguments.html#section-1",
-    "title": "Arguments",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Arguments"
-    ]
-  },
-  {
-    "objectID": "programming-basics/04-vectors.html",
-    "href": "programming-basics/04-vectors.html",
-    "title": "Vectors",
-    "section": "",
-    "text": "R stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\nWhen you run this rnorm() call, R sees the result as a vector of length ten.\n\n\n\n\n\n\n\n\nYou can create your own vectors with the c() function which combines the values into a single vector.\n\n\n\n\n\n\n\n\nIf you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n\n\n\n\n\n\n\n\nFor example, mean() computes the mean of a vector of values, and sum() computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input. R will apply the function separately to each element in the vector and return the result as a new vector.\nIf you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector, and so on until R reaches the end of the vector.",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Vectors"
-    ]
-  },
-  {
-    "objectID": "programming-basics/04-vectors.html#section-4",
-    "href": "programming-basics/04-vectors.html#section-4",
-    "title": "Vectors",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Vectors"
+      "Programming basics"
     ]
   },
   {
@@ -465,59 +243,204 @@
     ]
   },
   {
-    "objectID": "programming-basics/index.html",
-    "href": "programming-basics/index.html",
-    "title": "Programming basics",
+    "objectID": "programming-basics/04-vectors.html",
+    "href": "programming-basics/04-vectors.html",
+    "title": "Vectors",
     "section": "",
-    "text": "R is easiest to use when you know how the R language works. This tutorial will teach you the implicit background knowledge that informs every piece of R code. You’ll learn about:\n\nfunctions and their arguments\nobjects\nR’s basic data types\nR’s basic data structures including vectors and lists\nR’s package system",
+    "text": "R stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\nWhen you run this rnorm() call, R sees the result as a vector of length ten.\n\n\n\n\n\n\n\n\nYou can create your own vectors with the c() function which combines the values into a single vector.\n\n\n\n\n\n\n\n\nIf you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n\n\n\n\n\n\n\n\nFor example, mean() computes the mean of a vector of values, and sum() computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input. R will apply the function separately to each element in the vector and return the result as a new vector.\nIf you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector, and so on until R reaches the end of the vector.",
     "crumbs": [
       "Programming Basics",
-      "Programming basics"
+      "Programming basics",
+      "Vectors"
     ]
   },
   {
-    "objectID": "programming-basics/index.html#section",
-    "href": "programming-basics/index.html#section",
-    "title": "Programming basics",
+    "objectID": "programming-basics/04-vectors.html#section-4",
+    "href": "programming-basics/04-vectors.html#section-4",
+    "title": "Vectors",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
     "crumbs": [
       "Programming Basics",
-      "Programming basics"
+      "Programming basics",
+      "Vectors"
     ]
   },
   {
-    "objectID": "tidy-data/02-wide-to-long.html#section-4",
-    "href": "tidy-data/02-wide-to-long.html#section-4",
-    "title": "Wide to long",
+    "objectID": "programming-basics/02-arguments.html",
+    "href": "programming-basics/02-arguments.html",
+    "title": "Arguments",
+    "section": "",
+    "text": "Here we see that the log function recognizes two arguments, one named x and one named base.\n\n\n\n\n\n\n\n\nYou can use these names to look up what the arguments do, for example in log’s help page.\n\n\n\n\n\n\n\n\nYou can also use names when you call log to ensure that the right input is matched to the right argument.\n\n\n\n\n\n\n\n\nIf you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n\n\n\n\n\n\n\n\nIn practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\nFor example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n\n\n\n\n\n\n\n\nR will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\nIn contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Arguments"
+    ]
+  },
+  {
+    "objectID": "programming-basics/02-arguments.html#section-1",
+    "href": "programming-basics/02-arguments.html#section-1",
+    "title": "Arguments",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Arguments"
+    ]
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "License",
+    "section": "",
+    "text": "License\nThis is a human-readable summary of (and not a substitute for) the license. Please see https://creativecommons.org/licenses/by-sa/4.0/ for the full legal text.\nThis work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nYou are free to:\n\nShare—copy and redistribute the material in any medium or format, even commercially.\nAdapt—remix, transform, and build upon the material for any purpose, even commercially.\n\nThe licensor cannot revoke these freedoms as long as you follow the license terms.\nUnder the following terms:\n\nAttribution—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nThe primers are derived from the book R for Data Science. For the purposes of this license, appropriate credit requires including the phrase, “R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.”\nShareAlike-—-If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions—You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNotices:\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Primers for LING 343",
+    "section": "",
+    "text": "This is a rebooted version of the old RStudio/Posit Primers, now with Quarto and webR. It is based on the original port adapted by Andrew Heiss 🙏, but is modified and updated to use the newer quarto live quarto extension. The organization has been rearranged, styling changed, and currently only a subset of the primers are included in this version."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "R Primers for LING 343",
+    "section": "License",
+    "text": "License\n\nThe original primers were developed by the RStudio/Posit Education Team and made open source on GitHub. Following the original license, and the license of Andrew Heiss’s port, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nThe primers are derived from the book R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.\nSee here for the full license."
+  },
+  {
+    "objectID": "programming-basics/01-functions.html",
+    "href": "programming-basics/01-functions.html",
+    "title": "Functions",
+    "section": "",
+    "text": "First, read the Posit Recipe on running functions.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Functions"
+    ]
+  },
+  {
+    "objectID": "programming-basics/01-functions.html#section-2",
+    "href": "programming-basics/01-functions.html#section-2",
+    "title": "Functions",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Functions"
+    ]
+  },
+  {
+    "objectID": "programming-basics/03-objects.html",
+    "href": "programming-basics/03-objects.html",
+    "title": "Objects",
+    "section": "",
+    "text": "So far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\nIn R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n\n\n\n\n\n\n\n\nThe operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\nR will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n\n\n\n\n\n\n\n\nWhenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n\n\n\n\n\n\n\n\nThis makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n\n\n\n\n\n\n\n\nIf you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Objects"
+    ]
+  },
+  {
+    "objectID": "programming-basics/03-objects.html#section-3",
+    "href": "programming-basics/03-objects.html#section-3",
+    "title": "Objects",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Objects"
+    ]
+  },
+  {
+    "objectID": "programming-basics/05-types.html",
+    "href": "programming-basics/05-types.html",
+    "title": "Types",
+    "section": "",
+    "text": "R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\n\nmynums &lt;- c(1,2,3,4)\nsum(mynums)\n\n[1] 10\n\n\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\n\nmywords &lt;- c(\"cat\", \"zebra\", \"hippopotamus\")\nnchar(mywords)\n\n[1]  3  5 12\n\n\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof().\n\ntypeof(mywords)\n\n[1] \"character\"\n\ntypeof(mynums)\n\n[1] \"double\"\n\n\nNumeric vectors contain numbers and possibly decimal points and negative signs. They have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\nInteger vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\nR also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\nIt is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\nIf you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\nLater you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\nBut for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Types"
+    ]
+  },
+  {
+    "objectID": "programming-basics/05-types.html#section",
+    "href": "programming-basics/05-types.html#section",
+    "title": "Types",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Types"
+    ]
+  },
+  {
+    "objectID": "programming-basics/07-packages.html",
+    "href": "programming-basics/07-packages.html",
+    "title": "Packages",
+    "section": "",
+    "text": "R contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R. Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as “packages”.\nWhen you want to use these functions you must first load the package they come in with the library function. For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: “could not find function ggplot”.\nOnce I load the ggplot2 package, R can find the ggplot() function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n\nlibrary(ggplot2)\nggplot(penguins, aes(x = bill_len, y = flipper_len)) + \n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nYou can use R to download the packages by running install.packages() at the command line. Give install.packages() the names of the packages that you wish to download as a character vector and R will take care of the rest.\nR downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\nIn most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Packages"
+    ]
+  },
+  {
+    "objectID": "programming-basics/07-packages.html#section-2",
+    "href": "programming-basics/07-packages.html#section-2",
+    "title": "Packages",
+    "section": "",
+    "text": "Continue\n\n\nStart over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Packages"
+    ]
+  },
+  {
+    "objectID": "tidy-data/01-tidy-data.html",
+    "href": "tidy-data/01-tidy-data.html",
+    "title": "Tidy data",
+    "section": "",
+    "text": "Here are three definitions that are useful for data science:\n\nA variable is a quantity, quality, or property that you can measure.\nA value is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.\nAn observation is a set of measurements that are made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a case or data point.\n\nThese definitions are tied to the concept of tidy data. To see how, let’s apply the definitions to some real data.",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data",
+      "Tidy data"
+    ]
+  },
+  {
+    "objectID": "tidy-data/01-tidy-data.html#section",
+    "href": "tidy-data/01-tidy-data.html#section",
+    "title": "Tidy data",
     "section": "",
     "text": "Continue\n\nNext topic Start over",
     "crumbs": [
       "Tidy Data",
       "Reshape data",
-      "Wide to long"
+      "Tidy data"
     ]
   },
   {
-    "objectID": "tidy-data/index.html",
-    "href": "tidy-data/index.html",
-    "title": "Reshape data",
+    "objectID": "tidy-data/03-long-to-wide.html#section-5",
+    "href": "tidy-data/03-long-to-wide.html#section-5",
+    "title": "Long to wide",
     "section": "",
-    "text": "The tools that you learned in the previous Primers work best when your data is organized in a specific way. This format is known as tidy data and it appears throughout the tidyverse. You will spend a lot of time as a data scientist wrangling your data into a usable format, so it is important to learn how to do this fast.\nThis tutorial will teach you how to recognize tidy data, as well as how to reshape untidy data into a tidy format. In it, you will learn the core data wrangling functions for the tidyverse:\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {dplyr}, and {tidyr}, as well as the {babynames} package. All of these packages have been pre-installed and pre-loaded for your convenience.",
+    "text": "Continue\n\n\nStart over",
     "crumbs": [
       "Tidy Data",
-      "Reshape data"
-    ]
-  },
-  {
-    "objectID": "tidy-data/index.html#section",
-    "href": "tidy-data/index.html#section",
-    "title": "Reshape data",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Tidy Data",
-      "Reshape data"
+      "Reshape data",
+      "Long to wide"
     ]
   },
   {

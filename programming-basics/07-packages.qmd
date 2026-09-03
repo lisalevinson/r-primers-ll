@@ -34,14 +34,7 @@ source(here::here("R", "helpers.R"))
 R contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R. Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as "packages".
 
 When you want to use these functions you must first load the package they come 
-in with the library function. For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.
-
-```{r}
-#| error: true
-ggplot(penguins, aes(x = bill_len, y = flipper_len)) + 
-  geom_point()
-```
-
+in with the library function. For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: "could not find function ggplot".
 
 Once I load the `ggplot2` package, R can find the `ggplot()` function and I can begin using it. If you're using R locally on your computer you must download each package that you want to use (just as you need to download R).
 

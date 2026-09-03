@@ -29,13 +29,51 @@ source(here::here("R", "helpers.R"))
 
 ### Arguments {.no-hide}
 
-Watch [this video](https://vimeo.com/220490157):
+Here we see that the `log` function recognizes two arguments, one named `x` and one named `base`. 
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490157" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```{webr}
+args(log)
+
 ```
+
+You can use these names to look up what the arguments do, for example in `log`'s help page.
+
+```{webr}
+?log
+
+```
+
+You can also use names when you call log to ensure that the right input is matched to the right argument.
+
+```{webr}
+log(x = 10, base = 2)
+
+```
+
+If you don't use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.
+
+```{webr}
+log(2, 10)
+
+```
+
+In practice most R users specify argument names for every input after the first one or two inputs. Before you move on I'd like you to notice one more thing about arguments. Some arguments are optional.
+
+For example, notice that the base argument of `log` comes with a default value. This means that `base` is an optional argument.
+
+```{webr}
+log(10)
+```
+
+R will use your value for `base` if you supply one, otherwise R will use the default value which here is exponent of one: Euler's number.
+
+In contrast, `x` is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.
+
+```{webr}
+#| error: true
+log()
+```
+
 
 ### `args()`
 

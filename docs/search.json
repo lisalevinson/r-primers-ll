@@ -163,248 +163,92 @@
     ]
   },
   {
-    "objectID": "tidy-data/index.html",
-    "href": "tidy-data/index.html",
-    "title": "Reshape data",
+    "objectID": "transcripts.html",
+    "href": "transcripts.html",
+    "title": "programming basics",
     "section": "",
-    "text": "The tools that you learned in the previous Primers work best when your data is organized in a specific way. This format is known as tidy data and it appears throughout the tidyverse. You will spend a lot of time as a data scientist wrangling your data into a usable format, so it is important to learn how to do this fast.\nThis tutorial will teach you how to recognize tidy data, as well as how to reshape untidy data into a tidy format. In it, you will learn the core data wrangling functions for the tidyverse:\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {dplyr}, and {tidyr}, as well as the {babynames} package. All of these packages have been pre-installed and pre-loaded for your convenience.",
-    "crumbs": [
-      "Tidy Data",
-      "Reshape data"
-    ]
+    "text": "https://vimeo.com/220490105\nMost functions produce a result like we see here, but some functions are designed to trigger side effects in the background.\n00:07 As a new R user you should know how to do three things with a function. First, you should know that if you type the name of a function by itself, R will return the code that is stored in the function.\n00:13 This is the code that R runs when you call the function. The code may not mean anything to you now, but it can be useful down the road.\n00:25 Second, you should know that to run a function you must do more than type its name. You must place a pair of parentheses behind the function name.\n00:33 If the function requires any input to do its job you place the input between the parentheses, like the number three here.\n00:42 Finally, you should know that if you put a question mark in front of the function name and click run, R will open a help page for the function.\n00:49 This is the best way to learn about how the function works. Notice that you do not include parentheses when you open a help page.\n00:57\n\n\n\nhttps://vimeo.com/220490157\nHere we see that the log function recognizes two arguments, one named x and one named base. You can use these names to look up what the arguments do, for example in log’s help page.\n00:20 You can also use names when you call log to ensure that the right input is matched to the right argument.\n00:33 If you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n00:40 In practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\n00:54 For example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n01:09 R will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\n01:17 In contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.\n01:28\n\n\n\nhttps://player.vimeo.com/video/223812632\nTranscript\nSo far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\n00:00 In R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n00:08 The operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\n00:18 R will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n00:26 Whenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n00:38 This makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n00:45 If you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names.\n\n\n\nhttps://vimeo.com/220490316\nR stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\n00:00 When you run this rnorm call, R sees the result as a vector of length ten. You can create your own vectors with the c function which combines the values into a single vector.\n00:10 If you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n00:22 For example, mean computes the mean of a vector of values, and sum computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input.\n00:33 R will apply the function separately to each element in the vector and return the result as a new vector.\n00:48 If you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector,\n00:54 and so on until R reaches the end of the vector.\n01:02\n\n\n\nhttps://vimeo.com/220490241 R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof. Numeric vectors contain numbers and possibly decimal points and negative signs.\nThey have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\n00:39 Integer vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\n00:50 R also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\n01:02 It is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\n01:12 If you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\n01:25 Later you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\n01:33 But for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector.\n\n\n\nhttps://vimeo.com/220490360\nIn addition to vectors, R comes with a second very useful data structure: the list. A list is like a vector of vectors. Each element in the list can be a separate vector or even another list.\n00:00 For example, this list contains three elements. The first element is a numerical vector length five. The second is a character vector of length one,\n00:12 and the third element is a logical vector of length one. This list illustrates a useful feature of lists. You can store different types of data in the same list because each element of the list is its own vector with its own type.\n00:22 Recall that basic vectors can only store a single type of data. You can make lists like this with the list function.\n00:35 List works like the c function. Give list the elements of the list to make, separated by commas. If you like you can assign names to the elements as you go (which I recommend).\n00:43 If you assign names to each element of the list you can access the contents of the elements by typing the name of the list followed by a dollar sign, followed by the name of the element.\n00:56 Lists are essential to data science because R uses a specific type of list to store tabular data, and that’s the data frame.\n01:07 R displays data frames (like the iris data frame here) as a table. But R saves data frames as a list. Each column of the data frame is a vector that is saved as an element of the list.\n01:15 For example we can see how R saves iris. Iris is actually a list of five vectors. The names of the columns in iris are the names of the elements in the list.\n01:28\n\n\n\nhttps://vimeo.com/220490447\nR contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R.\n00:00 Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as packages.\nWhen you want to use these functions you must first load the package they come in with the library function.\n00:21 For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.\n00:27 Once I load the ggplot2 package, R can find the ggplot function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n00:42 You can use R to download the packages by running install.packages at the command line. Give install.packages the names of the packages that you wish to download as a character vector and R will take care of the rest.\n00:56 R downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\n01:10 In most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.\n01:20"
   },
   {
-    "objectID": "tidy-data/index.html#section",
-    "href": "tidy-data/index.html#section",
-    "title": "Reshape data",
+    "objectID": "transcripts.html#functions",
+    "href": "transcripts.html#functions",
+    "title": "programming basics",
     "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Tidy Data",
-      "Reshape data"
-    ]
+    "text": "https://vimeo.com/220490105\nMost functions produce a result like we see here, but some functions are designed to trigger side effects in the background.\n00:07 As a new R user you should know how to do three things with a function. First, you should know that if you type the name of a function by itself, R will return the code that is stored in the function.\n00:13 This is the code that R runs when you call the function. The code may not mean anything to you now, but it can be useful down the road.\n00:25 Second, you should know that to run a function you must do more than type its name. You must place a pair of parentheses behind the function name.\n00:33 If the function requires any input to do its job you place the input between the parentheses, like the number three here.\n00:42 Finally, you should know that if you put a question mark in front of the function name and click run, R will open a help page for the function.\n00:49 This is the best way to learn about how the function works. Notice that you do not include parentheses when you open a help page.\n00:57"
   },
   {
-    "objectID": "tidy-data/02-wide-to-long.html#section-4",
-    "href": "tidy-data/02-wide-to-long.html#section-4",
-    "title": "Wide to long",
+    "objectID": "transcripts.html#arguments",
+    "href": "transcripts.html#arguments",
+    "title": "programming basics",
     "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Tidy Data",
-      "Reshape data",
-      "Wide to long"
-    ]
+    "text": "https://vimeo.com/220490157\nHere we see that the log function recognizes two arguments, one named x and one named base. You can use these names to look up what the arguments do, for example in log’s help page.\n00:20 You can also use names when you call log to ensure that the right input is matched to the right argument.\n00:33 If you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n00:40 In practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\n00:54 For example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n01:09 R will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\n01:17 In contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.\n01:28"
   },
   {
-    "objectID": "programming-basics/index.html",
-    "href": "programming-basics/index.html",
-    "title": "Programming basics",
+    "objectID": "transcripts.html#objects-03-geometric-objects",
+    "href": "transcripts.html#objects-03-geometric-objects",
+    "title": "programming basics",
     "section": "",
-    "text": "R is easiest to use when you know how the R language works. This tutorial will teach you the implicit background knowledge that informs every piece of R code. You’ll learn about:\n\nfunctions and their arguments\nobjects\nR’s basic data types\nR’s basic data structures including vectors and lists\nR’s package system",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics"
-    ]
+    "text": "https://player.vimeo.com/video/223812632\nTranscript\nSo far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\n00:00 In R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n00:08 The operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\n00:18 R will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n00:26 Whenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n00:38 This makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n00:45 If you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names."
   },
   {
-    "objectID": "programming-basics/index.html#section",
-    "href": "programming-basics/index.html#section",
-    "title": "Programming basics",
+    "objectID": "transcripts.html#vectors",
+    "href": "transcripts.html#vectors",
+    "title": "programming basics",
     "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics"
-    ]
+    "text": "https://vimeo.com/220490316\nR stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\n00:00 When you run this rnorm call, R sees the result as a vector of length ten. You can create your own vectors with the c function which combines the values into a single vector.\n00:10 If you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n00:22 For example, mean computes the mean of a vector of values, and sum computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input.\n00:33 R will apply the function separately to each element in the vector and return the result as a new vector.\n00:48 If you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector,\n00:54 and so on until R reaches the end of the vector.\n01:02"
   },
   {
-    "objectID": "programming-basics/06-lists.html",
-    "href": "programming-basics/06-lists.html",
-    "title": "Lists",
+    "objectID": "transcripts.html#types",
+    "href": "transcripts.html#types",
+    "title": "programming basics",
     "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Lists"
-    ]
+    "text": "https://vimeo.com/220490241 R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof. Numeric vectors contain numbers and possibly decimal points and negative signs.\nThey have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\n00:39 Integer vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\n00:50 R also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\n01:02 It is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\n01:12 If you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\n01:25 Later you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\n01:33 But for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector."
   },
   {
-    "objectID": "programming-basics/06-lists.html#section-1",
-    "href": "programming-basics/06-lists.html#section-1",
-    "title": "Lists",
+    "objectID": "transcripts.html#lists",
+    "href": "transcripts.html#lists",
+    "title": "programming basics",
     "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Lists"
-    ]
+    "text": "https://vimeo.com/220490360\nIn addition to vectors, R comes with a second very useful data structure: the list. A list is like a vector of vectors. Each element in the list can be a separate vector or even another list.\n00:00 For example, this list contains three elements. The first element is a numerical vector length five. The second is a character vector of length one,\n00:12 and the third element is a logical vector of length one. This list illustrates a useful feature of lists. You can store different types of data in the same list because each element of the list is its own vector with its own type.\n00:22 Recall that basic vectors can only store a single type of data. You can make lists like this with the list function.\n00:35 List works like the c function. Give list the elements of the list to make, separated by commas. If you like you can assign names to the elements as you go (which I recommend).\n00:43 If you assign names to each element of the list you can access the contents of the elements by typing the name of the list followed by a dollar sign, followed by the name of the element.\n00:56 Lists are essential to data science because R uses a specific type of list to store tabular data, and that’s the data frame.\n01:07 R displays data frames (like the iris data frame here) as a table. But R saves data frames as a list. Each column of the data frame is a vector that is saved as an element of the list.\n01:15 For example we can see how R saves iris. Iris is actually a list of five vectors. The names of the columns in iris are the names of the elements in the list.\n01:28"
   },
   {
-    "objectID": "programming-basics/04-vectors.html",
-    "href": "programming-basics/04-vectors.html",
-    "title": "Vectors",
+    "objectID": "transcripts.html#packages",
+    "href": "transcripts.html#packages",
+    "title": "programming basics",
     "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Vectors"
-    ]
+    "text": "https://vimeo.com/220490447\nR contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R.\n00:00 Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as packages.\nWhen you want to use these functions you must first load the package they come in with the library function.\n00:21 For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.\n00:27 Once I load the ggplot2 package, R can find the ggplot function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n00:42 You can use R to download the packages by running install.packages at the command line. Give install.packages the names of the packages that you wish to download as a character vector and R will take care of the rest.\n00:56 R downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\n01:10 In most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.\n01:20"
   },
   {
-    "objectID": "programming-basics/04-vectors.html#section-4",
-    "href": "programming-basics/04-vectors.html#section-4",
-    "title": "Vectors",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Vectors"
-    ]
+    "objectID": "transcripts.html#histograms",
+    "href": "transcripts.html#histograms",
+    "title": "programming basics",
+    "section": "01-histograms",
+    "text": "01-histograms\nhttps://vimeo.com/221607341\nA histogram divides a continuous axis into equal length intervals known as bins. It then counts the number of observations that appear in each bin and displays the results as a bar that spans the width of the bin.\n00:20 So for example here in our first bin there are three observations, so the histogram would plot a bar the width of the bin that has a height of three.\n00:33 The next bin has eight observations, and then the next bin has ten observations, and so on. The height of each bar is mapped to the number of observations in the bin, which makes our histogram.\n00:40 The width of the bins is known as the binwidth which is an important number in histograms. If we change the binwidth of our histogram and then repeat our process the histogram will look different.\n00:52 Now we have more bins and they each have different heights. However this is the same distribution and the same data.\n01:05 As a result it’s important to experiment with different binwidths when you create a histogram. Different bin widths can reveal different patterns within the same data.\n01:14"
   },
   {
-    "objectID": "programming-basics/02-arguments.html",
-    "href": "programming-basics/02-arguments.html",
-    "title": "Arguments",
-    "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Arguments"
-    ]
+    "objectID": "transcripts.html#wide-to-long",
+    "href": "transcripts.html#wide-to-long",
+    "title": "programming basics",
+    "section": "02 wide-to-long",
+    "text": "02 wide-to-long\nhttps://vimeo.com/229581247\nno transcript - gather"
   },
   {
-    "objectID": "programming-basics/02-arguments.html#section-1",
-    "href": "programming-basics/02-arguments.html#section-1",
-    "title": "Arguments",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Arguments"
-    ]
+    "objectID": "transcripts.html#long-to-wide",
+    "href": "transcripts.html#long-to-wide",
+    "title": "programming basics",
+    "section": "03-long-to-wide",
+    "text": "03-long-to-wide\nhttps://vimeo.com/229581273\nno transcript - spread??"
   },
   {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "License",
-    "section": "",
-    "text": "License\nThis is a human-readable summary of (and not a substitute for) the license. Please see https://creativecommons.org/licenses/by-sa/4.0/ for the full legal text.\nThis work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nYou are free to:\n\nShare—copy and redistribute the material in any medium or format, even commercially.\nAdapt—remix, transform, and build upon the material for any purpose, even commercially.\n\nThe licensor cannot revoke these freedoms as long as you follow the license terms.\nUnder the following terms:\n\nAttribution—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nThe primers are derived from the book R for Data Science. For the purposes of this license, appropriate credit requires including the phrase, “R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.”\nShareAlike-—-If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions—You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNotices:\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R Primers for LING 343",
-    "section": "",
-    "text": "This is a rebooted version of the old RStudio/Posit Primers, now with Quarto and webR. It is based on the original port adapted by Andrew Heiss 🙏, but is modified and updated to use the newer quarto live quarto extension. The organization has been rearranged, styling changed, and currently only a subset of the primers are included in this version."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "R Primers for LING 343",
-    "section": "License",
-    "text": "License\n\nThe original primers were developed by the RStudio/Posit Education Team and made open source on GitHub. Following the original license, and the license of Andrew Heiss’s port, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nThe primers are derived from the book R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.\nSee here for the full license."
-  },
-  {
-    "objectID": "programming-basics/01-functions.html",
-    "href": "programming-basics/01-functions.html",
-    "title": "Functions",
-    "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Functions"
-    ]
-  },
-  {
-    "objectID": "programming-basics/01-functions.html#section-2",
-    "href": "programming-basics/01-functions.html#section-2",
-    "title": "Functions",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Functions"
-    ]
-  },
-  {
-    "objectID": "programming-basics/03-objects.html",
-    "href": "programming-basics/03-objects.html",
-    "title": "Objects",
-    "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Objects"
-    ]
-  },
-  {
-    "objectID": "programming-basics/03-objects.html#section-3",
-    "href": "programming-basics/03-objects.html#section-3",
-    "title": "Objects",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Objects"
-    ]
-  },
-  {
-    "objectID": "programming-basics/05-types.html",
-    "href": "programming-basics/05-types.html",
-    "title": "Types",
-    "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Types"
-    ]
-  },
-  {
-    "objectID": "programming-basics/05-types.html#section",
-    "href": "programming-basics/05-types.html#section",
-    "title": "Types",
-    "section": "",
-    "text": "Continue\n\nNext topic Start over",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Types"
-    ]
-  },
-  {
-    "objectID": "programming-basics/07-packages.html",
-    "href": "programming-basics/07-packages.html",
-    "title": "Packages",
-    "section": "",
-    "text": "Watch this video:",
-    "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Packages"
-    ]
-  },
-  {
-    "objectID": "programming-basics/07-packages.html#section-2",
-    "href": "programming-basics/07-packages.html#section-2",
-    "title": "Packages",
+    "objectID": "tidy-data/03-long-to-wide.html#section-5",
+    "href": "tidy-data/03-long-to-wide.html#section-5",
+    "title": "Long to wide",
     "section": "",
     "text": "Continue\n\n\nStart over",
     "crumbs": [
-      "Programming Basics",
-      "Programming basics",
-      "Packages"
+      "Tidy Data",
+      "Reshape data",
+      "Long to wide"
     ]
   },
   {
@@ -432,15 +276,248 @@
     ]
   },
   {
-    "objectID": "tidy-data/03-long-to-wide.html#section-5",
-    "href": "tidy-data/03-long-to-wide.html#section-5",
-    "title": "Long to wide",
+    "objectID": "programming-basics/07-packages.html",
+    "href": "programming-basics/07-packages.html",
+    "title": "Packages",
+    "section": "",
+    "text": "R contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R. Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as “packages”.\nWhen you want to use these functions you must first load the package they come in with the library function. For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.\n\nggplot(penguins, aes(x = bill_len, y = flipper_len)) + \n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nOnce I load the ggplot2 package, R can find the ggplot() function and I can begin using it. If you’re using R locally on your computer you must download each package that you want to use (just as you need to download R).\n\nlibrary(ggplot2)\nggplot(penguins, aes(x = bill_len, y = flipper_len)) + \n  geom_point()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nYou can use R to download the packages by running install.packages() at the command line. Give install.packages() the names of the packages that you wish to download as a character vector and R will take care of the rest.\nR downloads and installs the packages for you. You don’t need to worry about installing packages in these tutorials. We’ve already installed everything you’ll need.\nIn most cases we’ve also already loaded the packages that you will use with library. Still, it is important to understand how R’s package system works.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Packages"
+    ]
+  },
+  {
+    "objectID": "programming-basics/07-packages.html#section-2",
+    "href": "programming-basics/07-packages.html#section-2",
+    "title": "Packages",
     "section": "",
     "text": "Continue\n\n\nStart over",
     "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Packages"
+    ]
+  },
+  {
+    "objectID": "programming-basics/05-types.html",
+    "href": "programming-basics/05-types.html",
+    "title": "Types",
+    "section": "",
+    "text": "R recognizes different types of vectors based on clues in your values. For example, if your values are all numbers, R knows that the vector is numeric and R can do math with it.\n\nmynums &lt;- c(1,2,3,4)\nsum(mynums)\n\n[1] 10\n\n\nIf your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.\n\nmywords &lt;- c(\"cat\", \"zebra\", \"hippopotamus\")\nnchar(mywords)\n\n[1]  3  5 12\n\n\nBy recognizing what type of data you’re using, R can behave more intuitively. Altogether R recognizes six different types of data.\nYou can check the type of a vector with typeof().\n\ntypeof(mywords)\n\n[1] \"character\"\n\ntypeof(mynums)\n\n[1] \"double\"\n\n\nNumeric vectors contain numbers and possibly decimal points and negative signs. They have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.\nInteger vectors contain integers followed by a capital L. Logical vectors contain only TRUEs and FALSEs written in all capital letters.\nR also recognizes complex vectors and raw vectors, but we won’t cover these because you are unlikely to encounter them while doing data science.\nIt is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.\nIf you want to save different types of values in the same object you will need to use a list, which is a data structure that we’ll look at in the next video.\nLater you’ll learn about other classes of data that are built on top of R’s basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.\nBut for now, it’s important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Types"
+    ]
+  },
+  {
+    "objectID": "programming-basics/05-types.html#section",
+    "href": "programming-basics/05-types.html#section",
+    "title": "Types",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Types"
+    ]
+  },
+  {
+    "objectID": "programming-basics/03-objects.html",
+    "href": "programming-basics/03-objects.html",
+    "title": "Objects",
+    "section": "",
+    "text": "So far we’ve been happy to run functions and then read the results on the screen. If you’d like to use those results later you’ll need to save them.\nIn R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.\n\n\n\n\n\n\n\n\nThe operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.\nR will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.\n\n\n\n\n\n\n\n\nWhenever you call an object R will replace the object with the value assigned to the object when R executes the code.\n\n\n\n\n\n\n\n\nThis makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.\n\n\n\n\n\n\n\n\nIf you assign a value to an object that already exists R won’t hesitate to overwrite the old value. So be careful when you choose your object names.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Objects"
+    ]
+  },
+  {
+    "objectID": "programming-basics/03-objects.html#section-3",
+    "href": "programming-basics/03-objects.html#section-3",
+    "title": "Objects",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Objects"
+    ]
+  },
+  {
+    "objectID": "programming-basics/01-functions.html",
+    "href": "programming-basics/01-functions.html",
+    "title": "Functions",
+    "section": "",
+    "text": "First, read the Posit Recipe on running functions.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Functions"
+    ]
+  },
+  {
+    "objectID": "programming-basics/01-functions.html#section-2",
+    "href": "programming-basics/01-functions.html#section-2",
+    "title": "Functions",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Functions"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Primers for LING 343",
+    "section": "",
+    "text": "This is a rebooted version of the old RStudio/Posit Primers, now with Quarto and webR. It is based on the original port adapted by Andrew Heiss 🙏, but is modified and updated to use the newer quarto live quarto extension. The organization has been rearranged, styling changed, and currently only a subset of the primers are included in this version."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "R Primers for LING 343",
+    "section": "License",
+    "text": "License\n\nThe original primers were developed by the RStudio/Posit Education Team and made open source on GitHub. Following the original license, and the license of Andrew Heiss’s port, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nThe primers are derived from the book R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.\nSee here for the full license."
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "License",
+    "section": "",
+    "text": "License\nThis is a human-readable summary of (and not a substitute for) the license. Please see https://creativecommons.org/licenses/by-sa/4.0/ for the full legal text.\nThis work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).\nYou are free to:\n\nShare—copy and redistribute the material in any medium or format, even commercially.\nAdapt—remix, transform, and build upon the material for any purpose, even commercially.\n\nThe licensor cannot revoke these freedoms as long as you follow the license terms.\nUnder the following terms:\n\nAttribution—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nThe primers are derived from the book R for Data Science. For the purposes of this license, appropriate credit requires including the phrase, “R for Data Science from O’Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.”\nShareAlike-—-If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions—You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNotices:\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material."
+  },
+  {
+    "objectID": "programming-basics/02-arguments.html",
+    "href": "programming-basics/02-arguments.html",
+    "title": "Arguments",
+    "section": "",
+    "text": "Here we see that the log function recognizes two arguments, one named x and one named base.\n\n\n\n\n\n\n\n\nYou can use these names to look up what the arguments do, for example in log’s help page.\n\n\n\n\n\n\n\n\nYou can also use names when you call log to ensure that the right input is matched to the right argument.\n\n\n\n\n\n\n\n\nIf you don’t use argument names R will match your inputs to arguments in the order that they appear. This can sometimes cause problems, for example if you get your inputs out of order.\n\n\n\n\n\n\n\n\nIn practice most R users specify argument names for every input after the first one or two inputs. Before you move on I’d like you to notice one more thing about arguments. Some arguments are optional.\nFor example, notice that the base argument of log comes with a default value. This means that base is an optional argument.\n\n\n\n\n\n\n\n\nR will use your value for base if you supply one, otherwise R will use the default value which here is exponent of one: Euler’s number.\nIn contrast, x is a required argument because it does not come with a default value. If you do not supply an x argument the log function will fail.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Arguments"
+    ]
+  },
+  {
+    "objectID": "programming-basics/02-arguments.html#section-1",
+    "href": "programming-basics/02-arguments.html#section-1",
+    "title": "Arguments",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Arguments"
+    ]
+  },
+  {
+    "objectID": "programming-basics/04-vectors.html",
+    "href": "programming-basics/04-vectors.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "R stores every value as a vector, which is a one dimensional array of values. When you create a single value in R, R sees the value as a vector of length one.\nWhen you run this rnorm() call, R sees the result as a vector of length ten.\n\n\n\n\n\n\n\n\nYou can create your own vectors with the c() function which combines the values into a single vector.\n\n\n\n\n\n\n\n\nIf you want to, you can assign each value a name as you do so. Creating your own vectors is a very useful thing to do because many R functions expect a vector.\n\n\n\n\n\n\n\n\nFor example, mean() computes the mean of a vector of values, and sum() computes the sum. Vectors also help you work efficiently. You can give many R functions a vector of input. R will apply the function separately to each element in the vector and return the result as a new vector.\nIf you use multiple vectors of input R will apply the function to the first element of each vector, and then to the second element of each vector, and so on until R reaches the end of the vector.",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "programming-basics/04-vectors.html#section-4",
+    "href": "programming-basics/04-vectors.html#section-4",
+    "title": "Vectors",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "programming-basics/06-lists.html",
+    "href": "programming-basics/06-lists.html",
+    "title": "Lists",
+    "section": "",
+    "text": "In addition to vectors, R comes with a second very useful data structure: the list. A list is like a vector of vectors. Each element in the list can be a separate vector or even another list.\nFor example, this list contains three elements.\n\nlist(c(1,2,3,4,5), c(\"cat\"), c(TRUE))\n\n[[1]]\n[1] 1 2 3 4 5\n\n[[2]]\n[1] \"cat\"\n\n[[3]]\n[1] TRUE\n\n\nThe first element is a numerical vector length five. The second is a character vector of length one, and the third element is a logical vector of length one. This list illustrates a useful feature of lists. You can store different types of data in the same list because each element of the list is its own vector with its own type.\nRecall that basic vectors can only store a single type of data. You can make lists like this with the list() function.\nlist() works like the c() function. Give list the elements of the list to make, separated by commas. If you like you can assign names to the elements as you go (which I recommend).\nIf you assign names to each element of the list you can access the contents of the elements by typing the name of the list followed by a dollar sign, followed by the name of the element.\nLists are essential to data science because R uses a specific type of list to store tabular data, and that’s the data frame.\nR displays data frames (like the penguins data frame here) as a table. But R saves data frames as a list. Each column of the data frame is a vector that is saved as an element of the list.\n\npenguins\n\n      species    island bill_len bill_dep flipper_len body_mass    sex year\n1      Adelie Torgersen     39.1     18.7         181      3750   male 2007\n2      Adelie Torgersen     39.5     17.4         186      3800 female 2007\n3      Adelie Torgersen     40.3     18.0         195      3250 female 2007\n4      Adelie Torgersen       NA       NA          NA        NA   &lt;NA&gt; 2007\n5      Adelie Torgersen     36.7     19.3         193      3450 female 2007\n6      Adelie Torgersen     39.3     20.6         190      3650   male 2007\n7      Adelie Torgersen     38.9     17.8         181      3625 female 2007\n8      Adelie Torgersen     39.2     19.6         195      4675   male 2007\n9      Adelie Torgersen     34.1     18.1         193      3475   &lt;NA&gt; 2007\n10     Adelie Torgersen     42.0     20.2         190      4250   &lt;NA&gt; 2007\n11     Adelie Torgersen     37.8     17.1         186      3300   &lt;NA&gt; 2007\n12     Adelie Torgersen     37.8     17.3         180      3700   &lt;NA&gt; 2007\n13     Adelie Torgersen     41.1     17.6         182      3200 female 2007\n14     Adelie Torgersen     38.6     21.2         191      3800   male 2007\n15     Adelie Torgersen     34.6     21.1         198      4400   male 2007\n16     Adelie Torgersen     36.6     17.8         185      3700 female 2007\n17     Adelie Torgersen     38.7     19.0         195      3450 female 2007\n18     Adelie Torgersen     42.5     20.7         197      4500   male 2007\n19     Adelie Torgersen     34.4     18.4         184      3325 female 2007\n20     Adelie Torgersen     46.0     21.5         194      4200   male 2007\n21     Adelie    Biscoe     37.8     18.3         174      3400 female 2007\n22     Adelie    Biscoe     37.7     18.7         180      3600   male 2007\n23     Adelie    Biscoe     35.9     19.2         189      3800 female 2007\n24     Adelie    Biscoe     38.2     18.1         185      3950   male 2007\n25     Adelie    Biscoe     38.8     17.2         180      3800   male 2007\n26     Adelie    Biscoe     35.3     18.9         187      3800 female 2007\n27     Adelie    Biscoe     40.6     18.6         183      3550   male 2007\n28     Adelie    Biscoe     40.5     17.9         187      3200 female 2007\n29     Adelie    Biscoe     37.9     18.6         172      3150 female 2007\n30     Adelie    Biscoe     40.5     18.9         180      3950   male 2007\n31     Adelie     Dream     39.5     16.7         178      3250 female 2007\n32     Adelie     Dream     37.2     18.1         178      3900   male 2007\n33     Adelie     Dream     39.5     17.8         188      3300 female 2007\n34     Adelie     Dream     40.9     18.9         184      3900   male 2007\n35     Adelie     Dream     36.4     17.0         195      3325 female 2007\n36     Adelie     Dream     39.2     21.1         196      4150   male 2007\n37     Adelie     Dream     38.8     20.0         190      3950   male 2007\n38     Adelie     Dream     42.2     18.5         180      3550 female 2007\n39     Adelie     Dream     37.6     19.3         181      3300 female 2007\n40     Adelie     Dream     39.8     19.1         184      4650   male 2007\n41     Adelie     Dream     36.5     18.0         182      3150 female 2007\n42     Adelie     Dream     40.8     18.4         195      3900   male 2007\n43     Adelie     Dream     36.0     18.5         186      3100 female 2007\n44     Adelie     Dream     44.1     19.7         196      4400   male 2007\n45     Adelie     Dream     37.0     16.9         185      3000 female 2007\n46     Adelie     Dream     39.6     18.8         190      4600   male 2007\n47     Adelie     Dream     41.1     19.0         182      3425   male 2007\n48     Adelie     Dream     37.5     18.9         179      2975   &lt;NA&gt; 2007\n49     Adelie     Dream     36.0     17.9         190      3450 female 2007\n50     Adelie     Dream     42.3     21.2         191      4150   male 2007\n51     Adelie    Biscoe     39.6     17.7         186      3500 female 2008\n52     Adelie    Biscoe     40.1     18.9         188      4300   male 2008\n53     Adelie    Biscoe     35.0     17.9         190      3450 female 2008\n54     Adelie    Biscoe     42.0     19.5         200      4050   male 2008\n55     Adelie    Biscoe     34.5     18.1         187      2900 female 2008\n56     Adelie    Biscoe     41.4     18.6         191      3700   male 2008\n57     Adelie    Biscoe     39.0     17.5         186      3550 female 2008\n58     Adelie    Biscoe     40.6     18.8         193      3800   male 2008\n59     Adelie    Biscoe     36.5     16.6         181      2850 female 2008\n60     Adelie    Biscoe     37.6     19.1         194      3750   male 2008\n61     Adelie    Biscoe     35.7     16.9         185      3150 female 2008\n62     Adelie    Biscoe     41.3     21.1         195      4400   male 2008\n63     Adelie    Biscoe     37.6     17.0         185      3600 female 2008\n64     Adelie    Biscoe     41.1     18.2         192      4050   male 2008\n65     Adelie    Biscoe     36.4     17.1         184      2850 female 2008\n66     Adelie    Biscoe     41.6     18.0         192      3950   male 2008\n67     Adelie    Biscoe     35.5     16.2         195      3350 female 2008\n68     Adelie    Biscoe     41.1     19.1         188      4100   male 2008\n69     Adelie Torgersen     35.9     16.6         190      3050 female 2008\n70     Adelie Torgersen     41.8     19.4         198      4450   male 2008\n71     Adelie Torgersen     33.5     19.0         190      3600 female 2008\n72     Adelie Torgersen     39.7     18.4         190      3900   male 2008\n73     Adelie Torgersen     39.6     17.2         196      3550 female 2008\n74     Adelie Torgersen     45.8     18.9         197      4150   male 2008\n75     Adelie Torgersen     35.5     17.5         190      3700 female 2008\n76     Adelie Torgersen     42.8     18.5         195      4250   male 2008\n77     Adelie Torgersen     40.9     16.8         191      3700 female 2008\n78     Adelie Torgersen     37.2     19.4         184      3900   male 2008\n79     Adelie Torgersen     36.2     16.1         187      3550 female 2008\n80     Adelie Torgersen     42.1     19.1         195      4000   male 2008\n81     Adelie Torgersen     34.6     17.2         189      3200 female 2008\n82     Adelie Torgersen     42.9     17.6         196      4700   male 2008\n83     Adelie Torgersen     36.7     18.8         187      3800 female 2008\n84     Adelie Torgersen     35.1     19.4         193      4200   male 2008\n85     Adelie     Dream     37.3     17.8         191      3350 female 2008\n86     Adelie     Dream     41.3     20.3         194      3550   male 2008\n87     Adelie     Dream     36.3     19.5         190      3800   male 2008\n88     Adelie     Dream     36.9     18.6         189      3500 female 2008\n89     Adelie     Dream     38.3     19.2         189      3950   male 2008\n90     Adelie     Dream     38.9     18.8         190      3600 female 2008\n91     Adelie     Dream     35.7     18.0         202      3550 female 2008\n92     Adelie     Dream     41.1     18.1         205      4300   male 2008\n93     Adelie     Dream     34.0     17.1         185      3400 female 2008\n94     Adelie     Dream     39.6     18.1         186      4450   male 2008\n95     Adelie     Dream     36.2     17.3         187      3300 female 2008\n96     Adelie     Dream     40.8     18.9         208      4300   male 2008\n97     Adelie     Dream     38.1     18.6         190      3700 female 2008\n98     Adelie     Dream     40.3     18.5         196      4350   male 2008\n99     Adelie     Dream     33.1     16.1         178      2900 female 2008\n100    Adelie     Dream     43.2     18.5         192      4100   male 2008\n101    Adelie    Biscoe     35.0     17.9         192      3725 female 2009\n102    Adelie    Biscoe     41.0     20.0         203      4725   male 2009\n103    Adelie    Biscoe     37.7     16.0         183      3075 female 2009\n104    Adelie    Biscoe     37.8     20.0         190      4250   male 2009\n105    Adelie    Biscoe     37.9     18.6         193      2925 female 2009\n106    Adelie    Biscoe     39.7     18.9         184      3550   male 2009\n107    Adelie    Biscoe     38.6     17.2         199      3750 female 2009\n108    Adelie    Biscoe     38.2     20.0         190      3900   male 2009\n109    Adelie    Biscoe     38.1     17.0         181      3175 female 2009\n110    Adelie    Biscoe     43.2     19.0         197      4775   male 2009\n111    Adelie    Biscoe     38.1     16.5         198      3825 female 2009\n112    Adelie    Biscoe     45.6     20.3         191      4600   male 2009\n113    Adelie    Biscoe     39.7     17.7         193      3200 female 2009\n114    Adelie    Biscoe     42.2     19.5         197      4275   male 2009\n115    Adelie    Biscoe     39.6     20.7         191      3900 female 2009\n116    Adelie    Biscoe     42.7     18.3         196      4075   male 2009\n117    Adelie Torgersen     38.6     17.0         188      2900 female 2009\n118    Adelie Torgersen     37.3     20.5         199      3775   male 2009\n119    Adelie Torgersen     35.7     17.0         189      3350 female 2009\n120    Adelie Torgersen     41.1     18.6         189      3325   male 2009\n121    Adelie Torgersen     36.2     17.2         187      3150 female 2009\n122    Adelie Torgersen     37.7     19.8         198      3500   male 2009\n123    Adelie Torgersen     40.2     17.0         176      3450 female 2009\n124    Adelie Torgersen     41.4     18.5         202      3875   male 2009\n125    Adelie Torgersen     35.2     15.9         186      3050 female 2009\n126    Adelie Torgersen     40.6     19.0         199      4000   male 2009\n127    Adelie Torgersen     38.8     17.6         191      3275 female 2009\n128    Adelie Torgersen     41.5     18.3         195      4300   male 2009\n129    Adelie Torgersen     39.0     17.1         191      3050 female 2009\n130    Adelie Torgersen     44.1     18.0         210      4000   male 2009\n131    Adelie Torgersen     38.5     17.9         190      3325 female 2009\n132    Adelie Torgersen     43.1     19.2         197      3500   male 2009\n133    Adelie     Dream     36.8     18.5         193      3500 female 2009\n134    Adelie     Dream     37.5     18.5         199      4475   male 2009\n135    Adelie     Dream     38.1     17.6         187      3425 female 2009\n136    Adelie     Dream     41.1     17.5         190      3900   male 2009\n137    Adelie     Dream     35.6     17.5         191      3175 female 2009\n138    Adelie     Dream     40.2     20.1         200      3975   male 2009\n139    Adelie     Dream     37.0     16.5         185      3400 female 2009\n140    Adelie     Dream     39.7     17.9         193      4250   male 2009\n141    Adelie     Dream     40.2     17.1         193      3400 female 2009\n142    Adelie     Dream     40.6     17.2         187      3475   male 2009\n143    Adelie     Dream     32.1     15.5         188      3050 female 2009\n144    Adelie     Dream     40.7     17.0         190      3725   male 2009\n145    Adelie     Dream     37.3     16.8         192      3000 female 2009\n146    Adelie     Dream     39.0     18.7         185      3650   male 2009\n147    Adelie     Dream     39.2     18.6         190      4250   male 2009\n148    Adelie     Dream     36.6     18.4         184      3475 female 2009\n149    Adelie     Dream     36.0     17.8         195      3450 female 2009\n150    Adelie     Dream     37.8     18.1         193      3750   male 2009\n151    Adelie     Dream     36.0     17.1         187      3700 female 2009\n152    Adelie     Dream     41.5     18.5         201      4000   male 2009\n153    Gentoo    Biscoe     46.1     13.2         211      4500 female 2007\n154    Gentoo    Biscoe     50.0     16.3         230      5700   male 2007\n155    Gentoo    Biscoe     48.7     14.1         210      4450 female 2007\n156    Gentoo    Biscoe     50.0     15.2         218      5700   male 2007\n157    Gentoo    Biscoe     47.6     14.5         215      5400   male 2007\n158    Gentoo    Biscoe     46.5     13.5         210      4550 female 2007\n159    Gentoo    Biscoe     45.4     14.6         211      4800 female 2007\n160    Gentoo    Biscoe     46.7     15.3         219      5200   male 2007\n161    Gentoo    Biscoe     43.3     13.4         209      4400 female 2007\n162    Gentoo    Biscoe     46.8     15.4         215      5150   male 2007\n163    Gentoo    Biscoe     40.9     13.7         214      4650 female 2007\n164    Gentoo    Biscoe     49.0     16.1         216      5550   male 2007\n165    Gentoo    Biscoe     45.5     13.7         214      4650 female 2007\n166    Gentoo    Biscoe     48.4     14.6         213      5850   male 2007\n167    Gentoo    Biscoe     45.8     14.6         210      4200 female 2007\n168    Gentoo    Biscoe     49.3     15.7         217      5850   male 2007\n169    Gentoo    Biscoe     42.0     13.5         210      4150 female 2007\n170    Gentoo    Biscoe     49.2     15.2         221      6300   male 2007\n171    Gentoo    Biscoe     46.2     14.5         209      4800 female 2007\n172    Gentoo    Biscoe     48.7     15.1         222      5350   male 2007\n173    Gentoo    Biscoe     50.2     14.3         218      5700   male 2007\n174    Gentoo    Biscoe     45.1     14.5         215      5000 female 2007\n175    Gentoo    Biscoe     46.5     14.5         213      4400 female 2007\n176    Gentoo    Biscoe     46.3     15.8         215      5050   male 2007\n177    Gentoo    Biscoe     42.9     13.1         215      5000 female 2007\n178    Gentoo    Biscoe     46.1     15.1         215      5100   male 2007\n179    Gentoo    Biscoe     44.5     14.3         216      4100   &lt;NA&gt; 2007\n180    Gentoo    Biscoe     47.8     15.0         215      5650   male 2007\n181    Gentoo    Biscoe     48.2     14.3         210      4600 female 2007\n182    Gentoo    Biscoe     50.0     15.3         220      5550   male 2007\n183    Gentoo    Biscoe     47.3     15.3         222      5250   male 2007\n184    Gentoo    Biscoe     42.8     14.2         209      4700 female 2007\n185    Gentoo    Biscoe     45.1     14.5         207      5050 female 2007\n186    Gentoo    Biscoe     59.6     17.0         230      6050   male 2007\n187    Gentoo    Biscoe     49.1     14.8         220      5150 female 2008\n188    Gentoo    Biscoe     48.4     16.3         220      5400   male 2008\n189    Gentoo    Biscoe     42.6     13.7         213      4950 female 2008\n190    Gentoo    Biscoe     44.4     17.3         219      5250   male 2008\n191    Gentoo    Biscoe     44.0     13.6         208      4350 female 2008\n192    Gentoo    Biscoe     48.7     15.7         208      5350   male 2008\n193    Gentoo    Biscoe     42.7     13.7         208      3950 female 2008\n194    Gentoo    Biscoe     49.6     16.0         225      5700   male 2008\n195    Gentoo    Biscoe     45.3     13.7         210      4300 female 2008\n196    Gentoo    Biscoe     49.6     15.0         216      4750   male 2008\n197    Gentoo    Biscoe     50.5     15.9         222      5550   male 2008\n198    Gentoo    Biscoe     43.6     13.9         217      4900 female 2008\n199    Gentoo    Biscoe     45.5     13.9         210      4200 female 2008\n200    Gentoo    Biscoe     50.5     15.9         225      5400   male 2008\n201    Gentoo    Biscoe     44.9     13.3         213      5100 female 2008\n202    Gentoo    Biscoe     45.2     15.8         215      5300   male 2008\n203    Gentoo    Biscoe     46.6     14.2         210      4850 female 2008\n204    Gentoo    Biscoe     48.5     14.1         220      5300   male 2008\n205    Gentoo    Biscoe     45.1     14.4         210      4400 female 2008\n206    Gentoo    Biscoe     50.1     15.0         225      5000   male 2008\n207    Gentoo    Biscoe     46.5     14.4         217      4900 female 2008\n208    Gentoo    Biscoe     45.0     15.4         220      5050   male 2008\n209    Gentoo    Biscoe     43.8     13.9         208      4300 female 2008\n210    Gentoo    Biscoe     45.5     15.0         220      5000   male 2008\n211    Gentoo    Biscoe     43.2     14.5         208      4450 female 2008\n212    Gentoo    Biscoe     50.4     15.3         224      5550   male 2008\n213    Gentoo    Biscoe     45.3     13.8         208      4200 female 2008\n214    Gentoo    Biscoe     46.2     14.9         221      5300   male 2008\n215    Gentoo    Biscoe     45.7     13.9         214      4400 female 2008\n216    Gentoo    Biscoe     54.3     15.7         231      5650   male 2008\n217    Gentoo    Biscoe     45.8     14.2         219      4700 female 2008\n218    Gentoo    Biscoe     49.8     16.8         230      5700   male 2008\n219    Gentoo    Biscoe     46.2     14.4         214      4650   &lt;NA&gt; 2008\n220    Gentoo    Biscoe     49.5     16.2         229      5800   male 2008\n221    Gentoo    Biscoe     43.5     14.2         220      4700 female 2008\n222    Gentoo    Biscoe     50.7     15.0         223      5550   male 2008\n223    Gentoo    Biscoe     47.7     15.0         216      4750 female 2008\n224    Gentoo    Biscoe     46.4     15.6         221      5000   male 2008\n225    Gentoo    Biscoe     48.2     15.6         221      5100   male 2008\n226    Gentoo    Biscoe     46.5     14.8         217      5200 female 2008\n227    Gentoo    Biscoe     46.4     15.0         216      4700 female 2008\n228    Gentoo    Biscoe     48.6     16.0         230      5800   male 2008\n229    Gentoo    Biscoe     47.5     14.2         209      4600 female 2008\n230    Gentoo    Biscoe     51.1     16.3         220      6000   male 2008\n231    Gentoo    Biscoe     45.2     13.8         215      4750 female 2008\n232    Gentoo    Biscoe     45.2     16.4         223      5950   male 2008\n233    Gentoo    Biscoe     49.1     14.5         212      4625 female 2009\n234    Gentoo    Biscoe     52.5     15.6         221      5450   male 2009\n235    Gentoo    Biscoe     47.4     14.6         212      4725 female 2009\n236    Gentoo    Biscoe     50.0     15.9         224      5350   male 2009\n237    Gentoo    Biscoe     44.9     13.8         212      4750 female 2009\n238    Gentoo    Biscoe     50.8     17.3         228      5600   male 2009\n239    Gentoo    Biscoe     43.4     14.4         218      4600 female 2009\n240    Gentoo    Biscoe     51.3     14.2         218      5300   male 2009\n241    Gentoo    Biscoe     47.5     14.0         212      4875 female 2009\n242    Gentoo    Biscoe     52.1     17.0         230      5550   male 2009\n243    Gentoo    Biscoe     47.5     15.0         218      4950 female 2009\n244    Gentoo    Biscoe     52.2     17.1         228      5400   male 2009\n245    Gentoo    Biscoe     45.5     14.5         212      4750 female 2009\n246    Gentoo    Biscoe     49.5     16.1         224      5650   male 2009\n247    Gentoo    Biscoe     44.5     14.7         214      4850 female 2009\n248    Gentoo    Biscoe     50.8     15.7         226      5200   male 2009\n249    Gentoo    Biscoe     49.4     15.8         216      4925   male 2009\n250    Gentoo    Biscoe     46.9     14.6         222      4875 female 2009\n251    Gentoo    Biscoe     48.4     14.4         203      4625 female 2009\n252    Gentoo    Biscoe     51.1     16.5         225      5250   male 2009\n253    Gentoo    Biscoe     48.5     15.0         219      4850 female 2009\n254    Gentoo    Biscoe     55.9     17.0         228      5600   male 2009\n255    Gentoo    Biscoe     47.2     15.5         215      4975 female 2009\n256    Gentoo    Biscoe     49.1     15.0         228      5500   male 2009\n257    Gentoo    Biscoe     47.3     13.8         216      4725   &lt;NA&gt; 2009\n258    Gentoo    Biscoe     46.8     16.1         215      5500   male 2009\n259    Gentoo    Biscoe     41.7     14.7         210      4700 female 2009\n260    Gentoo    Biscoe     53.4     15.8         219      5500   male 2009\n261    Gentoo    Biscoe     43.3     14.0         208      4575 female 2009\n262    Gentoo    Biscoe     48.1     15.1         209      5500   male 2009\n263    Gentoo    Biscoe     50.5     15.2         216      5000 female 2009\n264    Gentoo    Biscoe     49.8     15.9         229      5950   male 2009\n265    Gentoo    Biscoe     43.5     15.2         213      4650 female 2009\n266    Gentoo    Biscoe     51.5     16.3         230      5500   male 2009\n267    Gentoo    Biscoe     46.2     14.1         217      4375 female 2009\n268    Gentoo    Biscoe     55.1     16.0         230      5850   male 2009\n269    Gentoo    Biscoe     44.5     15.7         217      4875   &lt;NA&gt; 2009\n270    Gentoo    Biscoe     48.8     16.2         222      6000   male 2009\n271    Gentoo    Biscoe     47.2     13.7         214      4925 female 2009\n272    Gentoo    Biscoe       NA       NA          NA        NA   &lt;NA&gt; 2009\n273    Gentoo    Biscoe     46.8     14.3         215      4850 female 2009\n274    Gentoo    Biscoe     50.4     15.7         222      5750   male 2009\n275    Gentoo    Biscoe     45.2     14.8         212      5200 female 2009\n276    Gentoo    Biscoe     49.9     16.1         213      5400   male 2009\n277 Chinstrap     Dream     46.5     17.9         192      3500 female 2007\n278 Chinstrap     Dream     50.0     19.5         196      3900   male 2007\n279 Chinstrap     Dream     51.3     19.2         193      3650   male 2007\n280 Chinstrap     Dream     45.4     18.7         188      3525 female 2007\n281 Chinstrap     Dream     52.7     19.8         197      3725   male 2007\n282 Chinstrap     Dream     45.2     17.8         198      3950 female 2007\n283 Chinstrap     Dream     46.1     18.2         178      3250 female 2007\n284 Chinstrap     Dream     51.3     18.2         197      3750   male 2007\n285 Chinstrap     Dream     46.0     18.9         195      4150 female 2007\n286 Chinstrap     Dream     51.3     19.9         198      3700   male 2007\n287 Chinstrap     Dream     46.6     17.8         193      3800 female 2007\n288 Chinstrap     Dream     51.7     20.3         194      3775   male 2007\n289 Chinstrap     Dream     47.0     17.3         185      3700 female 2007\n290 Chinstrap     Dream     52.0     18.1         201      4050   male 2007\n291 Chinstrap     Dream     45.9     17.1         190      3575 female 2007\n292 Chinstrap     Dream     50.5     19.6         201      4050   male 2007\n293 Chinstrap     Dream     50.3     20.0         197      3300   male 2007\n294 Chinstrap     Dream     58.0     17.8         181      3700 female 2007\n295 Chinstrap     Dream     46.4     18.6         190      3450 female 2007\n296 Chinstrap     Dream     49.2     18.2         195      4400   male 2007\n297 Chinstrap     Dream     42.4     17.3         181      3600 female 2007\n298 Chinstrap     Dream     48.5     17.5         191      3400   male 2007\n299 Chinstrap     Dream     43.2     16.6         187      2900 female 2007\n300 Chinstrap     Dream     50.6     19.4         193      3800   male 2007\n301 Chinstrap     Dream     46.7     17.9         195      3300 female 2007\n302 Chinstrap     Dream     52.0     19.0         197      4150   male 2007\n303 Chinstrap     Dream     50.5     18.4         200      3400 female 2008\n304 Chinstrap     Dream     49.5     19.0         200      3800   male 2008\n305 Chinstrap     Dream     46.4     17.8         191      3700 female 2008\n306 Chinstrap     Dream     52.8     20.0         205      4550   male 2008\n307 Chinstrap     Dream     40.9     16.6         187      3200 female 2008\n308 Chinstrap     Dream     54.2     20.8         201      4300   male 2008\n309 Chinstrap     Dream     42.5     16.7         187      3350 female 2008\n310 Chinstrap     Dream     51.0     18.8         203      4100   male 2008\n311 Chinstrap     Dream     49.7     18.6         195      3600   male 2008\n312 Chinstrap     Dream     47.5     16.8         199      3900 female 2008\n313 Chinstrap     Dream     47.6     18.3         195      3850 female 2008\n314 Chinstrap     Dream     52.0     20.7         210      4800   male 2008\n315 Chinstrap     Dream     46.9     16.6         192      2700 female 2008\n316 Chinstrap     Dream     53.5     19.9         205      4500   male 2008\n317 Chinstrap     Dream     49.0     19.5         210      3950   male 2008\n318 Chinstrap     Dream     46.2     17.5         187      3650 female 2008\n319 Chinstrap     Dream     50.9     19.1         196      3550   male 2008\n320 Chinstrap     Dream     45.5     17.0         196      3500 female 2008\n321 Chinstrap     Dream     50.9     17.9         196      3675 female 2009\n322 Chinstrap     Dream     50.8     18.5         201      4450   male 2009\n323 Chinstrap     Dream     50.1     17.9         190      3400 female 2009\n324 Chinstrap     Dream     49.0     19.6         212      4300   male 2009\n325 Chinstrap     Dream     51.5     18.7         187      3250   male 2009\n326 Chinstrap     Dream     49.8     17.3         198      3675 female 2009\n327 Chinstrap     Dream     48.1     16.4         199      3325 female 2009\n328 Chinstrap     Dream     51.4     19.0         201      3950   male 2009\n329 Chinstrap     Dream     45.7     17.3         193      3600 female 2009\n330 Chinstrap     Dream     50.7     19.7         203      4050   male 2009\n331 Chinstrap     Dream     42.5     17.3         187      3350 female 2009\n332 Chinstrap     Dream     52.2     18.8         197      3450   male 2009\n333 Chinstrap     Dream     45.2     16.6         191      3250 female 2009\n334 Chinstrap     Dream     49.3     19.9         203      4050   male 2009\n335 Chinstrap     Dream     50.2     18.8         202      3800   male 2009\n336 Chinstrap     Dream     45.6     19.4         194      3525 female 2009\n337 Chinstrap     Dream     51.9     19.5         206      3950   male 2009\n338 Chinstrap     Dream     46.8     16.5         189      3650 female 2009\n339 Chinstrap     Dream     45.7     17.0         195      3650 female 2009\n340 Chinstrap     Dream     55.8     19.8         207      4000   male 2009\n341 Chinstrap     Dream     43.5     18.1         202      3400 female 2009\n342 Chinstrap     Dream     49.6     18.2         193      3775   male 2009\n343 Chinstrap     Dream     50.8     19.0         210      4100   male 2009\n344 Chinstrap     Dream     50.2     18.7         198      3775 female 2009",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "programming-basics/06-lists.html#section-1",
+    "href": "programming-basics/06-lists.html#section-1",
+    "title": "Lists",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "programming-basics/index.html",
+    "href": "programming-basics/index.html",
+    "title": "Programming basics",
+    "section": "",
+    "text": "R is easiest to use when you know how the R language works. This tutorial will teach you the implicit background knowledge that informs every piece of R code. You’ll learn about:\n\nfunctions and their arguments\nobjects\nR’s basic data types\nR’s basic data structures including vectors and lists\nR’s package system",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics"
+    ]
+  },
+  {
+    "objectID": "programming-basics/index.html#section",
+    "href": "programming-basics/index.html#section",
+    "title": "Programming basics",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Programming Basics",
+      "Programming basics"
+    ]
+  },
+  {
+    "objectID": "tidy-data/02-wide-to-long.html#section-4",
+    "href": "tidy-data/02-wide-to-long.html#section-4",
+    "title": "Wide to long",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
       "Tidy Data",
       "Reshape data",
-      "Long to wide"
+      "Wide to long"
+    ]
+  },
+  {
+    "objectID": "tidy-data/index.html",
+    "href": "tidy-data/index.html",
+    "title": "Reshape data",
+    "section": "",
+    "text": "The tools that you learned in the previous Primers work best when your data is organized in a specific way. This format is known as tidy data and it appears throughout the tidyverse. You will spend a lot of time as a data scientist wrangling your data into a usable format, so it is important to learn how to do this fast.\nThis tutorial will teach you how to recognize tidy data, as well as how to reshape untidy data into a tidy format. In it, you will learn the core data wrangling functions for the tidyverse:\nThis tutorial uses the core tidyverse packages, including {ggplot2}, {dplyr}, and {tidyr}, as well as the {babynames} package. All of these packages have been pre-installed and pre-loaded for your convenience.",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data"
+    ]
+  },
+  {
+    "objectID": "tidy-data/index.html#section",
+    "href": "tidy-data/index.html#section",
+    "title": "Reshape data",
+    "section": "",
+    "text": "Continue\n\nNext topic Start over",
+    "crumbs": [
+      "Tidy Data",
+      "Reshape data"
     ]
   },
   {

@@ -31,13 +31,31 @@ source(here::here("R", "helpers.R"))
 
 ### Packages {.no-hide}
 
-Watch [this video](https://vimeo.com/220490447):
+R contains tens of thousands of functions, objects, and help pages. To save memory, R does not load every function, or object, or help page every time you start R. Instead, R loads only a core set of functions and objects, known as Base R. Other functions and objects are stored in collections known as "packages".
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490447" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+When you want to use these functions you must first load the package they come 
+in with the library function. For example, the ggplot function comes in the ggplot2 package. If I try to use ggplot before I load the ggplot2 package, R returns an error message: could not find function ggplot.
+
+```{r}
+#| error: true
+ggplot(penguins, aes(x = bill_len, y = flipper_len)) + 
+  geom_point()
 ```
+
+
+Once I load the `ggplot2` package, R can find the `ggplot()` function and I can begin using it. If you're using R locally on your computer you must download each package that you want to use (just as you need to download R).
+
+```{r}
+library(ggplot2)
+ggplot(penguins, aes(x = bill_len, y = flipper_len)) + 
+  geom_point()
+```
+
+You can use R to download the packages by running `install.packages()` at the command line. Give `install.packages()` the names of the packages that you wish to download as a character vector and R will take care of the rest.
+
+R downloads and installs the packages for you. You don't need to worry about installing packages in these tutorials. We've already installed everything you'll need.
+
+In most cases we've also already loaded the packages that you will use with library. Still, it is important to understand how R's package system works.
 
 ### A common error
 

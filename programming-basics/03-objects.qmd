@@ -27,13 +27,44 @@ source(here::here("R", "helpers.R"))
 
 ### Objects {.no-hide}
 
-Watch [this video](https://vimeo.com/220493412):
+So far we've been happy to run functions and then read the results on the screen. If you'd like to use those results later you'll need to save them.
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220493412" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+In R you save results by creating an object. To create an object type a name for the object and then use the assignment operator to store a value in the object.
+
+```{webr}
+my_num <- 7
+mynum
 ```
+
+
+The operator is a less than sign followed by a minus sign. The result looks like an arrow which is a helpful visual mnemonic.
+
+R will store whatever appears on the right of the arrow into the object that appears on the left. You can save individual values or you can directly save the results of a function.
+
+```{webr}
+my_log_result <- log(10,2)
+my_log_result
+```
+
+Whenever you call an object R will replace the object with the value assigned to the object when R executes the code.
+
+```{webr}
+my_log_result
+```
+
+This makes it easy to pass results to new functions or to see the contents of an object. To do that just call the object name by itself.
+
+```{webr}
+my_num + my_log_result
+```
+
+If you assign a value to an object that already exists R won't hesitate to overwrite the old value. So be careful when you choose your object names.
+
+```{webr}
+my_num <- 999
+my_num
+```
+
 
 ### Object names
 

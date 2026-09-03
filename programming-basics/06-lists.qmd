@@ -29,12 +29,35 @@ source(here::here("R", "helpers.R"))
 
 ### Lists {.no-hide}
 
-Watch [this video](https://vimeo.com/220490360):
+In addition to vectors, R comes with a second very useful data structure: 
+the list. A list is like a vector of vectors. Each element in the list can be a separate vector or even another list.
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+For example, this list contains three elements.
+
+```{r}
+list(c(1,2,3,4,5), c("cat"), c(TRUE))
+```
+
+The first element is a numerical vector length five. The second is a character vector of length one, and the third element is a logical vector of length one. This list illustrates a useful feature of lists. You can store different types of data in the same list because each element of the list is its own vector with its own type.
+
+Recall that basic vectors can only store a single type of data. You can make lists like this with the `list()` function.
+
+`list()` works like the `c()` function. Give list the elements of the list to make, separated by commas. If you like you can assign names to the elements as you go (which I recommend).
+
+If you assign names to each element of the list you can access the contents of the elements by typing the name of the list followed by a dollar sign, followed by the name of the element.
+
+Lists are essential to data science because R uses a specific type of list to store tabular data, and that's the data frame.
+
+R displays data frames (like the `penguins` data frame here) as a table. But R saves data frames as a list. Each column of the data frame is a vector that is saved as an element of the list.
+
+```{r}
+penguins
+```
+
+```{r}
+#| include: false
+# For example we can see how R saves `penguins`. It is actually a list of five vectors. The names of the columns in iris are the names of the elements in the list.
+
 ```
 
 ### Lists vs. vectors

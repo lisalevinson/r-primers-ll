@@ -29,13 +29,45 @@ source(here::here("R", "helpers.R"))
 
 ### Types {.no-hide}
 
-Watch [this video](https://vimeo.com/220490241):
+R recognizes different types of vectors based on clues in your values. For 
+example, if your values are all numbers, R knows that the vector is numeric 
+and R can do math with it.
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490241" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```{r}
+mynums <- c(1,2,3,4)
+sum(mynums)
 ```
+
+If your values are surrounded by quotation marks, R knows that the vector contains character strings and R can do things like count the number of characters in each string.
+
+```{r}
+mywords <- c("cat", "zebra", "hippopotamus")
+nchar(mywords)
+```
+
+By recognizing what type of data you're using, R can behave more intuitively. Altogether R recognizes six different types of data.
+
+You can check the type of a vector with `typeof()`.
+
+```{r}
+typeof(mywords)
+typeof(mynums)
+```
+
+Numeric vectors contain numbers and possibly decimal points and negative signs. They have the type double which is a computer science term that R associates with decimal numbers. Character vectors contain values surrounded by quotation marks.
+
+Integer vectors contain integers followed by a capital L. Logical vectors contain 
+only TRUEs and FALSEs written in all capital letters.
+
+R also recognizes complex vectors and raw vectors, but we won't cover these because you are unlikely to encounter them while doing data science.
+
+It is helpful to know that each vector in R can only contain one type of data. If you try to combine types within a single vector R will collapse everything to the same type, often a character vector.
+
+If you want to save different types of values in the same object you will need to use a list, which is a data structure that we'll look at in the next video.
+
+Later you'll learn about other classes of data that are built on top of R's basic types. R developers have come up with ingenious ways to use the six basic types to represent other classes of data like dates and times, and factors.
+
+But for now, it's important to realize that every value in R is based on a double, character, integer, logical, complex, or raw vector.
 
 ### Atomic types
 

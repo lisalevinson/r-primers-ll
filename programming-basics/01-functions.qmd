@@ -28,13 +28,24 @@ source(here::here("R", "helpers.R"))
 
 ### Functions {.no-hide}
 
-Watch [this video](https://vimeo.com/220490105):
+First, read the [Posit Recipe on running functions](https://posit.cloud/learn/recipes/basics/BasicB4). 
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490105" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```{r}
+#| include: false
+# Most functions produce a result like we see here, but some functions are designed to trigger side effects in the background. As a new R user you should know how to do three things with a function. First, you should know that if you type the name of a function by itself, R will return the code that is stored in the function.
+# 
+# This is the code that R runs when you call the function. The code may not mean anything to you now, but it can be useful down the road.
+# 
+# Second, you should know that to run a function you must do more than type its name. You must place a pair of parentheses behind the function name.
+# 
+# If the function requires any input to do its job you place the input between the parentheses, like the number three here.
+# 
+# Finally, you should know that if you put a question mark in front of the function name and click run, R will open a help page for the function.
+# 
+# This is the best way to learn about how the function works. Notice that you do not include parentheses when you open a help page.
+
 ```
+
 
 ### Run a function
 

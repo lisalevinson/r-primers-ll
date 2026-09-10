@@ -45,7 +45,7 @@ But before you do, you will need to trim down `babynames`. At the moment, there 
 
 To see what I mean, consider how I made the plot above: I began with the entire dataset, which if plotted as a scatterplot would've looked like this.
 
-```{r plot-all-names, out.width="60%", cache=TRUE}
+```{r plot-all-names, out.width="60%"}
 ggplot(babynames) +
   geom_point(aes(x = year, y = prop)) +
   labs(title = "Popularity of every name in the dataset")
